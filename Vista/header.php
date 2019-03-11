@@ -27,17 +27,15 @@ eeeeee
             <div class="col ">
                 <ul class="nav nav-pills nav-fill">
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="inicio.php">Inicio</a>
+                        <a class="nav-link text-light" href="../index.php">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" disabled>Empleado</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="">Listado de Empleado</a>
+                            <a class="dropdown-item" href="Vista/ListadoEmpleado.php">Listado de Empleado</a>
                             <a class="dropdown-item" href="Vista/V_empleado.php">Crear Empleado</a>
-                            
                         </div>
                     </li>
-
                 </ul>
             </div>
         </div>

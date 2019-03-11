@@ -1,6 +1,4 @@
 <?php
-
-
 $mysqli = new mysqli('localhost', 'root', '', 'mesaAyuda');
 
 if($mysqli->connect_error)

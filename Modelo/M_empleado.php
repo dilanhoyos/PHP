@@ -1,4 +1,4 @@
-<?
+<?php
 class Empleado
 {
     var $id;
@@ -20,7 +20,7 @@ class Empleado
     }
 
     function getId(){
-        return $id;
+        return $this->id;
     }
 
     function setId($id){
@@ -28,42 +28,42 @@ class Empleado
     }
 
     function getNombre(){
-        return $nombre;
+        return $this->nombre;
     }
 
     function setNombre($nom){
         $this->nombre = $nom;
     }
     function getTel(){
-        return $tel;
+        return $this->telefono;
     }
 
     function setTel($tel){
         $this->telefono = $tel;
     }
     function getCargo(){
-        return $cargo;
+        return $this->cargo;
     }
 
     function setCargo($car){
         $this->cargo = $car;
     }
     function getEmail(){
-        return $email;
+        return $this->email;
     }
 
     function setEmail($email){
         $this->email = $email;
     }
     function getArea(){
-        return $area;
+        return $this->area;
     }
 
     function setArea($are){
         $this->area = $are;
     }
     function getSupervi(){
-        return $Supervisor;
+        return $this->Supervisor;
     }
 
     function setSupervi($sup){
