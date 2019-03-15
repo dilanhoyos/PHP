@@ -1,8 +1,8 @@
-<?php include 'header.php'; 
+<?php 
+include 'header.php';
 include '../Controlador/Conexion.php'; 
-include '../Controlador/CtrlEmpleado.php'; 
-include '../Modelo/M_empleado.php'; 
-?>
+ ?>
+      
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,7 +16,7 @@ include '../Modelo/M_empleado.php';
 <body>
     <br>
     <div class = "container">
-        <form class="form1" method="POST" action="../Controlador/CtrlEmpleado.php">
+        <form class="form1" method="POST" action='?c=empleado&a=Guardar'>
             <h1><center>CREAR EMPLEADO</center></h1>
             <div class="form-row">
                 <div class="form-group col-md-4">
@@ -47,13 +47,27 @@ include '../Modelo/M_empleado.php';
                     <select name="rbarea" id="rbarea">
                         <option disabled selected>Seleccione Una Opcion</option>                     
                         <?php
-                            ini_set('display_errors', true);
+                                 try {
+                                    $mbd = new PDO('mysql:host=localhost;dbname=mesaAyuda', 'root', '');
+                                    foreach($mbd->query("SELECT IDAREA, NOMBRE FROM `area` ORDER BY `Nombre`") as $fila) {
+                                        echo '<option value="'.$fila["IDEMPLEADO"].'" class="custom-select">'.$fila["NOMBRE"].'</option>';
+                                    }
+                                    $mbd = null;
+                                } catch (PDOException $e) {
+                                    print "¡Error!: " . $e->getMessage() . "<br/>";
+                                    die();
+                                } 
+
+
+
+
+                           /* ini_set('display_errors', true);
                             error_reporting(E_ALL);
                             $query="SELECT IDAREA, NOMBRE FROM `area` ORDER BY `Nombre`";
                             $result = mysqli_query($mysqli, $query) or die("Ocurrio un error en la consulta SQL");
                             while (($fila = mysqli_fetch_array($result)) != NULL) {
                             echo '<option value="'.$fila["IDAREA"].'" class="custom-select">'.$fila["NOMBRE"].'</option>';
-                            }                            
+                            }             */               
                         ?>
                     </select>
                 </div><?php echo 'fsefsefsf';?>
@@ -63,13 +77,51 @@ include '../Modelo/M_empleado.php';
                     <select name="rbSup" id="rbSup">
                         <option disabled selected>Seleccione Una Opcion</option>                     
                         <?php
-                            ini_set('display_errors', true);
+                               try {
+                                    $mbd = new PDO('mysql:host=localhost;dbname=mesaAyuda', 'root', '');
+                                    foreach($mbd->query("SELECT IDEMPLEADO,NOMBRE FROM `empleado` ORDER BY `NOMBRE`") as $fila) {
+                                        echo '<option value="'.$fila["IDEMPLEADO"].'" class="custom-select">'.$fila["NOMBRE"].'</option>';
+                                    }
+                                    $mbd = null;
+                                } catch (PDOException $e) {
+                                    print "¡Error!: " . $e->getMessage() . "<br/>";
+                                    die();
+                                } 
+                            
+
+
+
+
+
+
+
+/*
+                            try 
+                            {
+                                $stm = $this->pdo
+                                        ->prepare("SELECT IDEMPLEADO,NOMBRE FROM `empleado` ORDER BY `NOMBRE`");
+                                        while (($fila = $stm->fetch(PDO::FETCH_OBJ)) != NULL) 
+                                        {
+                                            echo '<option value="'.$fila["IDEMPLEADO"].'" class="custom-select">'.$fila["NOMBRE"].'</option>';
+                                        }   
+                                        //$stm->execute(array($idpersona));
+                                       
+                            } catch (Exception $e) 
+                            {
+                                die($e->getMessage());
+                            }
+*/
+
+
+
+
+                            /*ini_set('display_errors', true);
                             error_reporting(E_ALL);
                             $query="SELECT IDEMPLEADO,NOMBRE FROM `empleado` ORDER BY `NOMBRE`";
                             $result = mysqli_query($mysqli, $query) or die("Ocurrio un error en la consulta SQL");
                             while (($fila = mysqli_fetch_array($result)) != NULL) {
                             echo '<option value="'.$fila["IDEMPLEADO"].'" class="custom-select">'.$fila["NOMBRE"].'</option>';
-                            }   
+                            }   */
                         ?>
                     </select>
                 </div>

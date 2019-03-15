@@ -1,24 +1,50 @@
 <?
+require_once 'Modelo/empleado.php';
+
 class CtrlEmpleado{
-	var $objEmpleado;
-	function CtrlEmpleado($objEmplea){
-		$this->objEmpleado=$objEmplea;
+
+	private $objEmpleado;
+	
+	public function __CONSTRUCT()
+	{
+        $this->objEmpleado = new Empleado(); }
+		
+	function Index()
+	{
+		require_once 'Vista/header.php';
 	}
-	function guardar(){
-		$id=$this->objEmpleado->getId();
-		$nom=$this->objEmpleado->getNombre();
-		$tel=$this->objEmpleado->getTel();
-        $car=$this->objEmpleado->getCargo();
-        $email=$this->objEmpleado->getEmail();
-        $area=$this->objEmpleado->getArea();
-        $sup=$this->objEmpleado->getSupervi();
-		$objCon = new Conexion();
-		$comSql="INSERT INTO EMPLEADO VALUES('".$id."','".$nom."','".$tel."',".$car.",".$email.",".$area.",".$sup.")";
-        $enl=$objCon->conectar("localhost","mesaAyuda","root","");
-        $objCon->ejecutarSql("mesaAyuda",$comSql);
-        $objCon->cerrar($enl);	
-        	
+
+
+	public function Crud(){
+        
+        require_once 'View/header.php';
     }
+
+	public function Guardar(){
+        $alm = new Empleado();
+		
+        $alm->id = $_REQUEST['txtId'];
+        $alm->nombre = $_REQUEST['txtNombre'];
+        $alm->telefono = $_REQUEST['txtTelefono'];
+        $alm->cargo = $_REQUEST['txtCargo'];
+        $alm->area = $_REQUEST['rbarea'];
+		$alm->email = $_REQUEST['txtEmail'];
+		$alm->supervisor = $_REQUEST['rbSup'];
+
+		
+		echo "<script>console.log( 'Debug Objects:  ' );</script>";         
+
+		$this->objEmpleado->Registrar($alm); // : no
+        	//$alm->id > 0 
+            //? $this->model->Actualizar($alm) // ? si
+           
+        
+        header('Location: ../index.php');
+    }
+
+
+
+
     
     
 

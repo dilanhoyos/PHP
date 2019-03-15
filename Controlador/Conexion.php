@@ -1,7 +1,11 @@
 <?php
-$mysqli = new mysqli('localhost', 'root', '', 'mesaAyuda');
-
-if($mysqli->connect_error)
+class Conexion
 {
-	die('Error en la conexion' . $mysqli->connect_error);
+    public static function StartUp()
+    {
+        $pdo = new PDO('mysql:host=localhost;dbname=mesaAyuda', 'root', '');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	
+        return $pdo;
+    }
 }
+?>
