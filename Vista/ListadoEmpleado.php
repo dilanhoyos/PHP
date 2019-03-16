@@ -69,7 +69,7 @@
 			<tbody>
 		<?php 
 		//////////////// CONSULTA A LA BASE DE DATOS ///////////////////
-			$consulta ="SELECT * FROM empleado";
+			$consulta ="SELECT * FROM empleado;";
 			$resEstado=$mysqli->query($consulta);
 			if(mysqli_num_rows($resEstado)==0)
 			{
@@ -83,15 +83,15 @@
 				$E = new Empleado(($data["IDEMPLEADO"]),($data["NOMBRE"]),($data["TELEFONO"]),($data["CARGO"]),($data["EMAIL"]),($data["FKAREA"]),($data["FKEMPLE"]));	
 		?> 
 			<tr>
-				<td><?php echo ($E->getId()); ?></td>
-				<td><?php echo $E->getNombre(); ?></a></td>
-				<td><?php echo $E->getTelefono();?></td>
-				<td><?php echo $E->getCargo();?></td>
-				<td><?php echo $E->getEmail();?></td>
-				<td><?php echo $E->getArea();?></td>
-				<td><?php echo $E->getSupervisor();?></td>
+				<td><?php echo ($data["IDEMPLEADO"]); ?></td>
+				<td><?php echo $data["NOMBRE"]; ?></a></td>
+				<td><?php echo $data["TELEFONO"];?></td>
+				<td><?php echo $data["CARGO"];?></td>
+				<td><?php echo ($data["EMAIL"]);?></td>
+				<td><?php echo $data["FKAREA"];?></td>
+				<td><?php echo $data["FKEMPLE"];?></td>
 				<td><a href="ModificarEmpleado.php?cc=<?php echo $data['IDEMPLEADO']; ?>"> <button type="button" class="btn btn-success">Modificar</button> </a> </td>
-				<td><a  href="#" button type="button" class="btn btn-danger" data-href="../modelo/EliminarCliente.php?cc=<?php echo $data['CC']; ?>" data-toggle="modal" data-target="#confirm-delete">Eliminar</button></a> </td>
+				<td><a href="../index.php?c=empleado&a=Eliminar&cc=<?php echo $data['IDEMPLEADO']; ?>"><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>
 			</tr>
 		<?php 
 				}
@@ -99,6 +99,7 @@
 		?>
 			</table>
 		</div>
+		<!--
 	<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -123,6 +124,6 @@
 		$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
 		$('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
 	});
-</script>
+</script>-->
 </body>
 </html>

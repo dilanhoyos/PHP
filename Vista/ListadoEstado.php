@@ -15,7 +15,7 @@
 	<link href="../css/bootstrap-theme.css" rel="stylesheet">
 	<script src="../js/jquery-3.3.1.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="../css/estilos.css">ç
+	<link rel="stylesheet" href="../css/estilos.css">
 	<link rel="stylesheet" href="../css/jquery.dataTables.min.css">
 	<script src="../js/jquery.dataTables.min.js"></script>
 	<script>
@@ -79,14 +79,14 @@
 				$E = new Estado(($data["IDESTADO"]),($data["NOMBRE"]));	
 		?>
 			<tr>
-				<td><?php echo ($E->getId()); ?></td>
-				<td><?php echo $E->getNombre(); ?></a></td>
+				<td><?php echo ($data["IDESTADO"]); ?></td>
+				<td><?php echo $data["NOMBRE"]; ?></a></td>
 				<td><a href="ModificarEstado.php?cc=<?php echo $data['IDESTADO']; ?>"> <button type="button" class="btn btn-success">Modificar</button> </a> </td>
 				<!--
 					<td><a  href="#" button type="button" class="btn btn-danger" data-href="../index.php?c=estado&a=Eliminar&cc=<?//php echo $data['CC']; ?>" data-toggle="modal" data-target="#confirm-delete">Eliminar</button></a> </td>
 				-->
 
-				<td><a button type="button" class="btn btn-danger" href="../index.php?c=estado&a=Eliminar&cc=<?php echo $data['IDESTADO']; ?>">Eliminar</button></a> </td>
+				<td><a href="../index.php?c=estado&a=Eliminar&cc=<?php echo $data['IDESTADO']; ?>"><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>
 			</tr>
 		<?php 
 				}
@@ -94,6 +94,7 @@
 		?>
 			</table>
 		</div>
+		<!--
 	<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -118,6 +119,6 @@
 		$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
 		$('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
 	});
-</script>
+</script>-->
 </body>
 </html>

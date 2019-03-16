@@ -24,14 +24,15 @@ class Empleado
 
     }
     
-    function Empleado($id, $nom, $tel, $car, $mail, $area, $sup){
-        $this->id = $id;
+    function __CONSTRUCT1($Id, $nom, $tel, $car, $mail, $Area, $Sup){
+        
+        $this->id = $Id;
         $this->nombre = $nom;
         $this->telefono = $tel;
         $this->cargo = $car;
         $this->email = $mail;
-        $this->area = $area;
-        $this->Supervisor = $sup;
+        $this->area = $Area;
+        $this->Supervisor = $Sup;
     }
 
 	public function __CONSTRUCT()

@@ -80,11 +80,11 @@
 				$E = new Area(($data["IDAREA"]),($data["NOMBRE"]),($data["FKEMPLE"]));	
 		?>
 			<tr>
-				<td><?php echo ($E->getId()); ?></td>
-				<td><?php echo $E->getNombre(); ?></a></td>
-				<td><?php echo $E->getEmple();?></td>
+				<td><?php echo $data["IDAREA"]; ?></td>
+				<td><?php echo $data["NOMBRE"]; ?></a></td>
+				<td><?php echo $data["FKEMPLE"];?></td>
 				<td><a href="ModificarArea.php?cc=<?php echo $data['IDAREA']; ?>"> <button type="button" class="btn btn-success">Modificar</button> </a> </td>
-				<td><a  href="#" button type="button" class="btn btn-danger" data-href="../modelo/EliminarCliente.php?cc=<?php echo $data['CC']; ?>" data-toggle="modal" data-target="#confirm-delete">Eliminar</button></a> </td>
+				<td><a href="../index.php?c=area&a=Eliminar&cc=<?php echo $data['IDAREA'];?> "><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>
 			</tr>
 		<?php 
 				}
@@ -92,6 +92,7 @@
 		?>
 			</table>
 		</div>
+		<!--
 	<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -116,6 +117,6 @@
 		$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
 		$('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
 	});
-</script>
+</script>-->
 </body>
 </html>
