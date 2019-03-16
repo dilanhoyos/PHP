@@ -69,7 +69,7 @@
 			<tbody>
 		<?php 
 		//////////////// CONSULTA A LA BASE DE DATOS ///////////////////
-			$consulta ="SELECT * FROM empleado;";
+			$consulta ="SELECT * FROM empleado";
 			$resEstado=$mysqli->query($consulta);
 			if(mysqli_num_rows($resEstado)==0)
 			{
@@ -79,10 +79,9 @@
 					
 			$result = mysqli_num_rows($resEstado);
 			if($result > 0){
-
 			while ($data = $resEstado->fetch_array(MYSQLI_BOTH)) {
 				$E = new Empleado(($data["IDEMPLEADO"]),($data["NOMBRE"]),($data["TELEFONO"]),($data["CARGO"]),($data["EMAIL"]),($data["FKAREA"]),($data["FKEMPLE"]));	
-		?>
+		?> 
 			<tr>
 				<td><?php echo ($E->getId()); ?></td>
 				<td><?php echo $E->getNombre(); ?></a></td>

@@ -47,25 +47,15 @@ class Empleado
         `CARGO`='$data->cargo',
         `EMAIL`='$data->email',
         `FKAREA`='$data->area',
-        `FKEMPLE`='$data->Supervisor' WHERE '$data->id'";
-        $sql = "INSERT INTO `empleado`(`IDEMPLEADO`, `NOMBRE`, `TELEFONO`, `CARGO`, `EMAIL`, `FKAREA`, `FKEMPLE`) VALUES (
-            '$data->id',
-            '$data->nombre',
-            '$data->telefono',
-            '$data->cargo',
-            '$data->email',
-            '$data->area',
-            '$data->Supervisor')";
+        `FKEMPLE`='$data->Supervisor' WHERE IDEMPLEADO = '$data->id'";
         $resultado = $mysqli->query($sql) or die($mysqli->error);
 
     }
     
     public function Eliminar(Empleado $data)
 	{
-		require '../Controlador/Conexion.php';
-        
+		require 'Controlador/Conexion.php';
         $sql = "DELETE FROM empleado WHERE IDEMPLEADO = '$data->id'";
-        //devuelve un valor booleano
         $resultado = $mysqli->query($sql) or die  (mysqli_error($mysqli));
 	}
 

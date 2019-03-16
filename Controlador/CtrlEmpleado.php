@@ -31,7 +31,7 @@ class CtrlEmpleado{
 		$alm->supervisor = $_REQUEST['rbSup'];
 		     
 		$this->objEmpleado->Registrar($alm); // : no
-        //header('Location: ../index.php');
+		header('Location: /phpproject/');	
 	}
 
 	public function Modificar(){
@@ -45,14 +45,14 @@ class CtrlEmpleado{
 		$alm->supervisor = $_REQUEST['rbSup'];
 		     
 		$this->objEmpleado->Modificar($alm); // : no
-        //header('Location: ../index.php');
+		header('Location: /phpproject/');	
 	}
 
 	public function Eliminar(){
 		$alm = new Empleado();
 		$alm->id = $_GET['cc'];
 		$this->objEmpleado->Eliminar($alm); // : no
-
+		header('Location: /phpproject/');	
 	}
 
 }

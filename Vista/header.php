@@ -29,12 +29,14 @@ eeeeee
                     <li class="nav-item">
                         <a class="nav-link text-light" href="../index.php">Inicio</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" disabled>Empleado</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="Vista/ListadoEmpleado.php">Listado de Empleado</a>
-                            <a class="dropdown-item" href="Vista/V_empleado.php">Crear Empleado</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoArea.php">Area</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoEmpleado.php">Empleado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoEstado.php">Estado</a>
                     </li>
                 </ul>
             </div>
