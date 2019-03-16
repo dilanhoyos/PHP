@@ -3,7 +3,7 @@
 	$Page = 'Informacion';
 	include ('header.php');
 	include "../Controlador/Conexion.php";	
-	include "../Modelo/M_empleado.php";
+	include "../Modelo/empleado.php";
 	/////////// VARIABLES DE CONSULTA ////////////////
 	$where="";
 ?>
@@ -86,12 +86,12 @@
 			<tr>
 				<td><?php echo ($E->getId()); ?></td>
 				<td><?php echo $E->getNombre(); ?></a></td>
-				<td><?php echo $E->getTel();?></td>
+				<td><?php echo $E->getTelefono();?></td>
 				<td><?php echo $E->getCargo();?></td>
 				<td><?php echo $E->getEmail();?></td>
 				<td><?php echo $E->getArea();?></td>
-				<td><?php echo $E->getSupervi();?></td>
-				<td><a href="ModificarCliente.php?cc=<?php echo $data['CC']; ?>"> <button type="button" class="btn btn-success">Modificar</button> </a> </td>
+				<td><?php echo $E->getSupervisor();?></td>
+				<td><a href="ModificarEmpleado.php?cc=<?php echo $data['IDEMPLEADO']; ?>"> <button type="button" class="btn btn-success">Modificar</button> </a> </td>
 				<td><a  href="#" button type="button" class="btn btn-danger" data-href="../modelo/EliminarCliente.php?cc=<?php echo $data['CC']; ?>" data-toggle="modal" data-target="#confirm-delete">Eliminar</button></a> </td>
 			</tr>
 		<?php 

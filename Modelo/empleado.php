@@ -8,50 +8,21 @@ class Empleado
     var $email;
     var $area;
     var $Supervisor;
-    
-    private $pdo;
-
-	public function __CONSTRUCT()
-	{
-		try
-		{
-			$this->pdo = Conexion::StartUp();     
-		}
-		catch(Exception $e)
-		{
-			die($e->getMessage());
-		}
-	}
-
 
     public function Registrar(Empleado $data)
 	{
-		try 
-		{
-            echo "<script>console.log( 'Debug Objects:  ' );</script>";         
-		$sql = "INSERT INTO EMPLEADO (IDEMPLEADO,NOMBRE,TELEFONO,CARGO,EMAIL,FKAREA,FKEMPLE)
-        VALUES (?, ?, ?, ?, ?, ?,?)";
+        require 'Controlador/Conexion.php';
+        $sql = "INSERT INTO `empleado`(`IDEMPLEADO`, `NOMBRE`, `TELEFONO`, `CARGO`, `EMAIL`, `FKAREA`, `FKEMPLE`) VALUES (
+            '$data->id',
+            '$data->nombre',
+            '$data->telefono',
+            '$data->cargo',
+            '$data->email',
+            '$data->area',
+            '$data->Supervisor')";
+        $resultado = $mysqli->query($sql) or die($mysqli->error);
 
-		$this->pdo->prepare($sql)
-		     ->execute(
-				array(
-                    $data->id,
-                    $data->nombre, 
-                    $data->telefono,
-                    $data->cargo,
-                    $data->email,
-                    $data->$area,
-                    $data->$Supervisor  
-                )
-			);
-		} catch (Exception $e) 
-		{
-			die($e->getMessage());
-		}
-	}
-
-
-
+    }
     
     function Empleado($id, $nom, $tel, $car, $mail, $area, $sup){
         $this->id = $id;
@@ -62,6 +33,62 @@ class Empleado
         $this->area = $area;
         $this->Supervisor = $sup;
     }
-   
+
+	public function __CONSTRUCT()
+	{
+	}
+
+    public function Modificar(Empleado $data)
+	{
+        require 'Controlador/Conexion.php';
+        $sql = "UPDATE `empleado` SET 
+        `NOMBRE`='$data->nombre',
+        `TELEFONO`='$data->telefono',
+        `CARGO`='$data->cargo',
+        `EMAIL`='$data->email',
+        `FKAREA`='$data->area',
+        `FKEMPLE`='$data->Supervisor' WHERE '$data->id'";
+        $sql = "INSERT INTO `empleado`(`IDEMPLEADO`, `NOMBRE`, `TELEFONO`, `CARGO`, `EMAIL`, `FKAREA`, `FKEMPLE`) VALUES (
+            '$data->id',
+            '$data->nombre',
+            '$data->telefono',
+            '$data->cargo',
+            '$data->email',
+            '$data->area',
+            '$data->Supervisor')";
+        $resultado = $mysqli->query($sql) or die($mysqli->error);
+
+    }
+    
+    public function Eliminar(Empleado $data)
+	{
+		require '../Controlador/Conexion.php';
+        
+        $sql = "DELETE FROM empleado WHERE IDEMPLEADO = '$data->id'";
+        //devuelve un valor booleano
+        $resultado = $mysqli->query($sql) or die  (mysqli_error($mysqli));
+	}
+
+    function getId(){
+        return $this->id;
+    }
+    function getNombre(){
+        return $this->nombre;
+    }
+    function getTelefono(){
+        return $this->telefono;
+    }
+    function getCargo(){
+        return $this->cargo;
+    }
+    function getEmail(){
+        return $this->email;
+    }
+    function getArea(){
+        return $this->area;
+    }
+    function getSupervisor(){
+        return $this->Supervisor;
+    }
 }
 ?>

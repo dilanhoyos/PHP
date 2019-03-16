@@ -1,11 +1,8 @@
 <?php
-class Conexion
+$mysqli = new mysqli('localhost', 'root', '', 'mesaAyuda');//primer parametro nombre del servidor
+if($mysqli->connect_error)
 {
-    public static function StartUp()
-    {
-        $pdo = new PDO('mysql:host=localhost;dbname=mesaAyuda', 'root', '');
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	
-        return $pdo;
-    }
+	die('Error en la conexion' . $mysqli->connect_error);//si no se realizo la conexion me aparecera el sigfuiente error.
+	//el die es como colocar un exit pero envia un mensaje y llerga hasta ahi, no ejecuta mas el srcipt
 }
 ?>

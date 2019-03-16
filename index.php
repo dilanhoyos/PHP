@@ -9,20 +9,19 @@ if(!isset($_REQUEST['c']))
     $controlador = ($controlador) ;
     $controlador = new $controlador;
     $controlador->Index();    
-    echo "<script>console.log( 'Debug Objects:  ' );</script>";
 }
 else
 {
-    
     // buscamos el controlador que queremos cargar
     $controlador = ($_REQUEST['c']);
     $accion = isset($_REQUEST['a']) ? $_REQUEST['a'] : 'Index';
     
     // Instanciamos el controlador
-    require_once "Controlador/CtrlEmpleado.php";
-    $controlador = "CtrlEmpleado";
+    require_once "Controlador/Ctrl".ucwords($controlador).".php";
+    $controlador = "Ctrl".ucwords($controlador);
     $controlador = new $controlador;
-    
+    echo "<script>console.log( 'Debug Objects:  ' );</script>";
+
     // Función para llamar las acciones a ejecutar
     call_user_func( array( $controlador, $accion ) );
 }
