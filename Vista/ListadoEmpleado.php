@@ -47,7 +47,7 @@
 			<h2 style="text-align: center">Listado de Empleados</h2>
 		</div>
 		<div class="row">
-			<a href="V_Empleado.php" class="btn btn-primary">Nuevo Empleado</a>
+			<a href="V_empleado.php" class="btn btn-primary">Nuevo Empleado</a>
 		</div>
 		<br>
 		<br>

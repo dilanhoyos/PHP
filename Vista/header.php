@@ -27,7 +27,7 @@ eeeeee
             <div class="col ">
                 <ul class="nav nav-pills nav-fill">
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="../index.php">Inicio</a>
+                        <a class="nav-link text-light" href="/phpproject/">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="/phpproject/Vista/ListadoArea.php">Area</a>
@@ -37,6 +37,9 @@ eeeeee
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="/phpproject/Vista/ListadoEstado.php">Estado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoRequerimiento.php">Requerimiento</a>
                     </li>
                 </ul>
             </div>
