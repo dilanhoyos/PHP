@@ -42,6 +42,7 @@
 	</script>
 </head>
 <body>
+<BR>
 	<div class="container">
 		<div class="row">
 			<h2 style="text-align: center">Listado de Area</h2>

@@ -15,7 +15,7 @@
 	<link href="../css/bootstrap-theme.css" rel="stylesheet">
 	<script src="../js/jquery-3.3.1.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="../css/estilos.css">ç
+	<link rel="stylesheet" href="../css/estilos.css">
 	<link rel="stylesheet" href="../css/jquery.dataTables.min.css">
 	<script src="../js/jquery.dataTables.min.js"></script>
 	<script>
@@ -42,6 +42,7 @@
 	</script>
 </head>
 <body>
+<br>
 	<div class="container">
 		<div class="row">
 			<h2 style="text-align: center">Listado de Empleados</h2>
