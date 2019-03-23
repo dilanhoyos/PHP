@@ -44,7 +44,12 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
                             $query="SELECT IDEMPLEADO, NOMBRE FROM `empleado` ORDER BY `Nombre`";
                             $result = mysqli_query($mysqli, $query) or die("Ocurrio un error en la consulta SQL");
                             while (($fila = mysqli_fetch_array($result)) != NULL) {
-                            echo '<option value="'.$fila["IDEMPLEADO"].'" class="custom-select">'.$fila["NOMBRE"].'</option>';
+                                if($row['FKEMPLE'] === $fila["IDEMPLEADO"]){
+                                    echo '<option value="'.$fila["IDEMPLEADO"].'" class="custom-select" selected="true">'.$fila["NOMBRE"].' - '.$fila["IDEMPLEADO"].'</option>';
+                                }
+                                else{
+                                    echo '<option value="'.$fila["IDEMPLEADO"].'" class="custom-select">'.$fila["NOMBRE"].' - '.$fila["IDEMPLEADO"].'</option>';
+                                }
                             }                           
                         ?>
                     </select>
@@ -60,7 +65,12 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
                             $query="SELECT IDREQ, FKAREA FROM `requisito` ORDER BY `IDREQ`";
                             $result = mysqli_query($mysqli, $query) or die("Ocurrio un error en la consulta SQL");
                             while (($fila = mysqli_fetch_array($result)) != NULL) {
-                            echo '<option value="'.$fila["IDREQ"].'" class="custom-select">'.$fila["FKAREA"].'</option>';
+                                if($row['FKREQ'] === $fila["IDREQ"]){
+                                    echo '<option value="'.$fila["IDREQ"].'" class="custom-select" selected="true">'.$fila["IDREQ"].'</option>';
+                                }
+                                else{
+                                    echo '<option value="'.$fila["IDREQ"].'" class="custom-select">'.$fila["IDREQ"].'</option>';
+                                }
                             }                           
                         ?>
                     </select>
@@ -76,6 +86,12 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
                             $query="SELECT IDESTADO, NOMBRE FROM `estado` ORDER BY `Nombre`";
                             $result = mysqli_query($mysqli, $query) or die("Ocurrio un error en la consulta SQL");
                             while (($fila = mysqli_fetch_array($result)) != NULL) {
+                                if($row['FKESTADO'] === $fila["IDESTADO"]){
+                                    echo '<option value="'.$fila["IDESTADO"].'" class="custom-select" selected="true">'.$fila["NOMBRE"].' - '.$fila["IDESTADO"].'</option>';
+                                }
+                                else{
+                                    echo '<option value="'.$fila["IDESTADO"].'" class="custom-select">'.$fila["NOMBRE"].' - '.$fila["IDESTADO"].'</option>';
+                                }
                             echo '<option value="'.$fila["IDESTADO"].'" class="custom-select">'.$fila["NOMBRE"].'</option>';
                             }                           
                         ?>
@@ -93,7 +109,12 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
                             $query="SELECT IDEMPLEADO,NOMBRE FROM `empleado` ORDER BY `NOMBRE`";
                             $result = mysqli_query($mysqli, $query) or die("Ocurrio un error en la consulta SQL");
                             while (($fila = mysqli_fetch_array($result)) != NULL) {
-                            echo '<option value="'.$fila["IDEMPLEADO"].'" class="custom-select">'.$fila["NOMBRE"].' - '.$fila["IDEMPLEADO"].'</option>';
+                                if($row['FKEMPLEASIG'] === $fila["IDEMPLEADO"]){
+                                    echo '<option value="'.$fila["IDEMPLEADO"].'" class="custom-select" selected="true">'.$fila["NOMBRE"].' - '.$fila["IDEMPLEADO"].'</option>';
+                                }
+                                else{
+                                    echo '<option value="'.$fila["IDEMPLEADO"].'" class="custom-select">'.$fila["NOMBRE"].' - '.$fila["IDEMPLEADO"].'</option>';
+                                }
                             } 
                         ?>
                     </select>

@@ -4,9 +4,9 @@ class Area{
     var $nom;
     var $emple;
 
-    function Area($id,$nom,$emp){
-        $this->id = $id;
-        $this->nom = $nom;
+    function Area($idd,$noms,$emp){
+        $this->id = $idd;
+        $this->nom = $noms;
         $this->emple = $emp;
     }
     public function Registrar(Area $data)
@@ -17,7 +17,6 @@ class Area{
             '$data->nombre',
             '$data->emple')";
         $resultado = $mysqli->query($sql) or die($mysqli->error);
-
     }
 
 	public function __CONSTRUCT()
