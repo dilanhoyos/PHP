@@ -33,11 +33,10 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
                     <BR>    
                     <select name="rbSup" id="rbSup">
                         <option disabled selected>Seleccione Una Opcion</option>   
-                        <option value="NULL" class="custom-select">Nulo</option>                  
                         <?php 
                             ini_set('display_errors', true);
                             error_reporting(E_ALL);
-                            $query="SELECT IDEMPLEADO,NOMBRE FROM `empleado` ORDER BY `NOMBRE`";
+                            $query="SELECT * FROM `empleado` ";
                             $result = mysqli_query($mysqli, $query) or die("Ocurrio un error en la consulta SQL");
                             while (($fila = mysqli_fetch_array($result)) != NULL) {
                                 if($row['FKEMPLE'] === $fila["IDEMPLEADO"]){

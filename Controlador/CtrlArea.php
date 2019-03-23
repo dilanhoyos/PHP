@@ -35,6 +35,7 @@ class CtrlArea{
         $alm->id = $_REQUEST['txtId'];
         $alm->nombre = $_REQUEST['txtNombre'];
 		$alm->supervisor = $_REQUEST['rbSup'];
+		print_r ($alm->supervisor );
 		     
 		$this->objArea->Modificar($alm);
 		header('Location: /phpproject/');	

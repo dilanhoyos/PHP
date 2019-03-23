@@ -15,7 +15,7 @@ class Area{
         $sql = "INSERT INTO `area`(`IDAREA`, `NOMBRE`, `FKEMPLE`) VALUES (
             '$data->id',
             '$data->nombre',
-            '$data->emple')";
+            '$data->supervisor')";
         $resultado = $mysqli->query($sql) or die($mysqli->error);
     }
 
@@ -28,7 +28,8 @@ class Area{
         require 'Controlador/Conexion.php';
         $sql = "UPDATE `area` SET 
         `NOMBRE`='$data->nombre',
-        `FKEMPLE`='$data->emple' WHERE IDAREA = '$data->id'";
+        `FKEMPLE`='$data->supervisor' WHERE IDAREA = '$data->id'";//aqui estaba el error  es supervisor   ms no empleado
+        print_r ($sql);
         $resultado = $mysqli->query($sql) or die($mysqli->error);
 
     }
@@ -39,30 +40,6 @@ class Area{
         $sql = "DELETE FROM area WHERE IDAREA = '$data->id'";
         $resultado = $mysqli->query($sql) or die  (mysqli_error($mysqli));
 	}
-    
-
-    function getId(){
-        return $this->id;
-    }
-
-    function setId($id){
-        $this->id = $id;
-    }
-
-    function getNombre(){
-        return $this->nom;
-    }
-
-    function setNombre($nomb){
-        $this->nom = $nomb;
-    }
-
-    function getEmple(){
-        return $this->emple;
-    }
-
-    function setEmple($E){
-        $emple = $E;
-    }
+   
 }
 ?>
