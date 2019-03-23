@@ -46,17 +46,7 @@ include '../Controlador/Conexion.php';
                     <BR>
                     <select name="rbarea" id="rbarea">
                         <option disabled selected>Seleccione Una Opcion</option>                     
-                        <?php /* 
-                                 try {
-                                    $mbd = new PDO('mysql:host=localhost;dbname=mesaAyuda', 'root', '');
-                                    foreach($mbd->query("SELECT IDAREA, NOMBRE FROM `area` ORDER BY `Nombre`") as $fila) {
-                                        echo '<option value="'.$fila["IDEMPLEADO"].'" class="custom-select">'.$fila["NOMBRE"].'</option>';
-                                    }
-                                    $mbd = null;
-                                } catch (PDOException $e) {
-                                    print "¡Error!: " . $e->getMessage() . "<br/>";
-                                    die();
-                                } */ 
+                        <?php 
                             ini_set('display_errors', true);
                             error_reporting(E_ALL);
                             $query="SELECT IDAREA, NOMBRE FROM `area` ORDER BY `Nombre`";

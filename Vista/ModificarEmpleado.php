@@ -1,9 +1,11 @@
 <?php include 'header.php'; 
 include '../Controlador/Conexion.php';
 $cc = $_GET['cc'];
-$sql = "SELECT * FROM empleado where IDEMPLEADO = '$cc'";
-$resultado1 = $mysqli->query($sql);
-$row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGISTRO ENTONCES NO ES NECESARIO COLOCAR EL WHILE
+$query = "SELECT * FROM empleado where IDEMPLEADO = '$cc'";
+$result = mysqli_query($mysqli, $query) or die("Ocurrio un error en la consulta SQL");
+while (($row = mysqli_fetch_array($result)) != NULL) {
+    
+} 
 
 ?>
 <!DOCTYPE html>

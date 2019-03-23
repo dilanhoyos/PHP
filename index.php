@@ -35,6 +35,6 @@ else
     <title>Document</title>
 </head>
 <body>
-    Inicio
+   
 </body>
 </html>

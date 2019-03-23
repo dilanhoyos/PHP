@@ -7,7 +7,7 @@ class Empleado
     var $cargo;
     var $email;
     var $area;
-    var $Supervisor;
+    var $supervisor;
 
     public function Registrar(Empleado $data)
 	{
@@ -19,7 +19,10 @@ class Empleado
             '$data->cargo',
             '$data->email',
             '$data->area',
-            '$data->Supervisor')";
+            '$data->supervisor')";
+
+            print_r($data->area);
+            print_r($sql);
         $resultado = $mysqli->query($sql) or die($mysqli->error);
 
     }
@@ -32,12 +35,9 @@ class Empleado
         $this->cargo = $car;
         $this->email = $mail;
         $this->area = $Area;
-        $this->Supervisor = $Sup;
+        $this->supervisor = $Sup;
     }
 
-	public function __CONSTRUCT()
-	{
-	}
 
     public function Modificar(Empleado $data)
 	{
@@ -48,7 +48,8 @@ class Empleado
         `CARGO`='$data->cargo',
         `EMAIL`='$data->email',
         `FKAREA`='$data->area',
-        `FKEMPLE`='$data->Supervisor' WHERE IDEMPLEADO = '$data->id'";
+        `FKEMPLE`='$data->supervisor'
+         WHERE IDEMPLEADO = '$data->id'";
         $resultado = $mysqli->query($sql) or die($mysqli->error);
 
     }
@@ -60,26 +61,5 @@ class Empleado
         $resultado = $mysqli->query($sql) or die  (mysqli_error($mysqli));
 	}
 
-    function getId(){
-        return $this->id;
-    }
-    function getNombre(){
-        return $this->nombre;
-    }
-    function getTelefono(){
-        return $this->telefono;
-    }
-    function getCargo(){
-        return $this->cargo;
-    }
-    function getEmail(){
-        return $this->email;
-    }
-    function getArea(){
-        return $this->area;
-    }
-    function getSupervisor(){
-        return $this->Supervisor;
-    }
 }
 ?>
