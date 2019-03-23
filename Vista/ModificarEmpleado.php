@@ -67,8 +67,7 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
                     <label for="Super">Supervisor</label>
                     <BR>    
                     <select name="rbSup" id="rbSup">
-                        <option disabled selected>Seleccione Una Opcion</option>   
-                        <option value="NULL" class="custom-select">Nulo</option>                  
+                        <option disabled selected>Seleccione Una Opcion</option>                   
                         <?php 
                             ini_set('display_errors', true);
                             error_reporting(E_ALL);
