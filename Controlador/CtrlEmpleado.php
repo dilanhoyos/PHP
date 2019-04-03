@@ -7,9 +7,10 @@ class CtrlEmpleado{
 	
 	public function __CONSTRUCT()
 	{
-        $this->objEmpleado = new Empleado(); }
-		
-	function Index()
+		$this->objEmpleado = new Empleado(); 
+	}
+
+	function Login()
 	{
 		require_once 'Vista/Login.php';
 	}

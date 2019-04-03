@@ -20,7 +20,7 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 
   
-  <form class="form-signin" action='?menu=ingreso' method='post'>
+  <form class="form-signin" action='index.php?c=login&a=Verificar' method='post'>
   <div class="container">
       <div class="container">
         <br>
@@ -29,12 +29,12 @@
         <br>
         <div class="input-group">
           <label for="input" class="sr-only">Usuario</label>
-          <input  class="form-control" id="email" name="email" type="text" placeholder="Usuario" required="true">   		
+          <input  class="form-control" id="txtEmail" name="txtEmail" type="text" placeholder="Usuario" required="true">   		
         </div>
         <br>
         <div class="input-group">
           <label for="inputPassword" class="sr-only">Contraseña</label>
-          <input class="form-control" id="password" name="password" type="password" placeholder="Contraseña" required="true"> 
+          <input class="form-control" id="txtPassword" name="txtPassword" type="password" placeholder="Contraseña" required="true"> 
         </div>
         </div>
         <br>
