@@ -11,7 +11,7 @@ class CtrlEmpleado{
 		
 	function Index()
 	{
-		require_once 'Vista/header.php';
+		require_once 'Vista/Login.php';
 	}
 
 
