@@ -14,15 +14,15 @@ class CtrlLogin{
                 { 
                     session_start(); 
                 } 
-                $_SESSION['user']=$fila['Nombre'];
+                $_SESSION['user']=$fila['USUARIO'];
                 $_SESSION['verificar']=true;
                 $_SESSION['rol'] = '1';		
-                header('Location: /phpproject/');	            
-            }else{
                 header('Location: /phpproject/Vista/ListadoArea.php');	            
+            }else{
+                header('Location: /phpproject/');	            
             }
         }else{
-            header('Location: /phpproject/Vista/ListadoEmpleado.php');	            
+            header('Location: /phpproject/');//pagina de error <3	            
 
         }
 

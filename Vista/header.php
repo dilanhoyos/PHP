@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,8 @@
 00adb5
 eeeeee
 -->
+<?php session_start();?>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -23,6 +26,45 @@ eeeeee
                 <h1 class="display-1 text-light">Mesa de Ayuda</h1>
             </div>            
         </div>
+        <?php if($_SESSION['verificar'] && $_SESSION['rol'] == 0){ //ADMINISTRADOR?> 
+        <div class="row" style="background-color: #00adb5">
+            <div class="col ">
+                <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/phpproject/Vista/inicio.php">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoArea.php">Area</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoEmpleado.php">Empleado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoEstado.php">Estado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoRequerimiento.php">Requerimiento</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <?php }else if ($_SESSION['verificar'] && $_SESSION['rol'] == 1){ //JEFE DE AREA?> 
+        <div class="row" style="background-color: #00adb5">
+            <div class="col ">
+                <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/phpproject/Vista/inicio.php">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoArea.php">Area</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoRequerimiento.php">Requerimiento</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <?php }else if ($_SESSION['verificar'] && $_SESSION['rol'] == 2){ //EMPLEADO?>
         <div class="row" style="background-color: #00adb5">
             <div class="col ">
                 <ul class="nav nav-pills nav-fill">
@@ -44,7 +86,11 @@ eeeeee
                 </ul>
             </div>
         </div>
+
     </div>
   </header>
 </body>
 </html>
+<?php }else{
+    header('Location: /phpproject/');	            
+}?>
