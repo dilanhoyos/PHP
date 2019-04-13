@@ -25,7 +25,8 @@ class CtrlRadicado{
 		     
 		$this->objRadicado->Registrar($alm); // : no
 		header('Location: Vista/CrearRadicado.php');	
-	}
+    }
+    
 
 	
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-04-2019 a las 18:27:21
+-- Tiempo de generación: 13-04-2019 a las 18:50:36
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.5.37
 
@@ -32,12 +32,6 @@ CREATE TABLE `area` (
   `FKEMPLE` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `area`
---
-
-
-
 -- --------------------------------------------------------
 
 --
@@ -54,12 +48,6 @@ CREATE TABLE `detallereq` (
   `FKEMPLEASIG` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `detallereq`
---
-
-
-
 -- --------------------------------------------------------
 
 --
@@ -75,11 +63,6 @@ CREATE TABLE `empleado` (
   `FKAREA` int(11) NOT NULL,
   `FKEMPLE` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `empleado`
---
-
 
 -- --------------------------------------------------------
 
@@ -112,12 +95,9 @@ INSERT INTO `estado` (`IDESTADO`, `NOMBRE`) VALUES
 CREATE TABLE `login` (
   `usuario` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
   `contrasena` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
-  `rol` int(11) NOT NULL
+  `rol` int(11) NOT NULL,
+  `FKEMPLE` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Volcado de datos para la tabla `login`
---
 
 -- --------------------------------------------------------
 
@@ -129,10 +109,6 @@ CREATE TABLE `requisito` (
   `IDREQ` int(11) NOT NULL,
   `FKAREA` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `requisito`
---
 
 --
 -- Índices para tablas volcadas
