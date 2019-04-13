@@ -1,7 +1,12 @@
 <?php 
-include 'header.php';
 include '../Controlador/Conexion.php'; 
+//$cc = $_GET['cc'];
+//$sql = "SELECT * FROM empleado where IDEMPLEADO = '$cc'";
+//$resultado1 = $mysqli->query($sql);
+//$row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGISTRO ENTONCES NO ES NECESARIO COLOCAR EL WHILE
+//echo $_SERVER['PHP_SELF'];
  ?>
+
       
 <!doctype html>
 <html lang="en">
@@ -16,21 +21,19 @@ include '../Controlador/Conexion.php';
 <body>
     <br>
     <div class = "container">
+ 
         <form class="form1" method="POST" action='../index.php?c=requerimiento&a=Guardar'>
-            <h1><center>CREAR REQUERIMIENTO</center></h1>
+            <h1><center>DETALLE DEL REQUERIMIENTO</center></h1>
             <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="ID">ID</label>
-                    <input type="text" class="form-control" id="txtId" name="txtId" placeholder="ID">
-                </div>
+                
                 <div class="form-group col-md-4">
                     <label for="Fecha">Fecha</label>
-                    <input type="date" class="form-control" id="txtFecha" name="txtFecha" min="<?php echo date("Y").'-'.date("m").'-'.date("d");?>">      
-                    <!--value="<?php// echo $filas['FechaIni'];?>"-->
+                    <input type="date" class="form-control" id="txtFecha" name="txtFecha" value="<? echo date ("Y/n/j");  ?>">
+            
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="Observacion">Observacion</label>
-                    <input type="text" class="form-control" id="txtObser" name="txtObser" placeholder="ID">
+                    <label for="Observacion">Persona Activa</label>
+                    <input type="text" class="form-control" id="txtPersona" name="txtPersona" value="<?php echo $_SESSION['USUARIO']; ?>">
             </div>    
             </div>
             <div class="form-row">
@@ -91,8 +94,7 @@ include '../Controlador/Conexion.php';
                     <label for="EmpleadoA">Empleado Asignado</label>
                     <BR>    
                     <select name="rbempa" id="rbempa">
-                        <option disabled selected>Seleccione Una Opcion</option>   
-                        <option value="NULL" class="custom-select">Nulo</option>                  
+                        <option disabled selected>Seleccione Una Opcion</option>                    
                         <?php 
                             ini_set('display_errors', true);
                             error_reporting(E_ALL);
@@ -104,8 +106,14 @@ include '../Controlador/Conexion.php';
                         ?>
                     </select>
                 </div>
-                <center><button type="submit" class="btn btn-primary">Registrar</button></center>
-            </div>
+                <div class="form-row">
+                <div class="form-group col-md-12">
+                   <textarea name="txtObser" id="txtObser" cols="115" rows="10"></textarea>
+                </div>
+                <div class="form-group col-md-5"></div>
+                <div class="form-group col-md-2">
+                <center><button type="submit" class="btn btn-primary">Radicar</button></center>
+                </div>
         </form>
     </div>
     <!-- Optional JavaScript -->

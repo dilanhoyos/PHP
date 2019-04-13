@@ -17,7 +17,7 @@ class CtrlLogin{
                 $_SESSION['user']=$fila['USUARIO'];
                 $_SESSION['verificar']=true;
                 $_SESSION['rol'] = '1';		
-                header('Location: /phpproject/Vista/ListadoArea.php');	            
+                header('Location: /phpproject/Vista/CrearRadicado.php');	            
             }else{
                 header('Location: /phpproject/');	            
             }

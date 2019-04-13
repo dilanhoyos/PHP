@@ -48,7 +48,7 @@
 			<h2 style="text-align: center">Listado de Requerimientos</h2>
 		</div>
 		<div class="row">
-			<a href="V_requerimiento.php" class="btn btn-primary">Nuevo Requerimiento</a>
+			<a href="CrearRadicado.php" class="btn btn-primary">Nuevo Requerimiento</a>
 		</div>
 		<br>
 		<br>

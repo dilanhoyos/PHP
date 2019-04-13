@@ -12,8 +12,7 @@ class Requerimiento
     public function Registrar(Requerimiento $data)
 	{
         require 'Controlador/Conexion.php';
-        $sql = "INSERT INTO `detallereq`(`IDDETALLEREQ`, `FECHA`, `OBSERVACION`, `FKEMPLE`, `FKREQ`, `FKESTADO`, `FKEMPLEASIG`) VALUES (
-            '$data->id',
+        $sql = "INSERT INTO `detallereq`(`FECHA`, `OBSERVACION`, `FKEMPLE`, `FKREQ`, `FKESTADO`, `FKEMPLEASIG`) VALUES (
             '$data->fecha',
             '$data->observacion',
             '$data->emple',
