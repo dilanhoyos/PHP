@@ -45,10 +45,11 @@
 	<div class="container">
 		<BR>
 		<div class="row">
-			<h2 style="text-align: center">Listado de Requerimientos</h2>
+			<h2 style="text-align: center">Listado de Radicado</h2>
 		</div>
+		
 		<div class="row">
-			<a href="CrearRadicado.php" class="btn btn-primary">Nuevo Requerimiento</a>
+			<a href="V_requerimiento.php" class="btn btn-primary">Nuevo Radicado</a>
 		</div>
 		<br>
 		<br>
@@ -70,7 +71,7 @@
 			<tbody>
 		<?php 
 		//////////////// CONSULTA A LA BASE DE DATOS ///////////////////
-			$consulta ="SELECT * FROM detallereq;";
+			$consulta ="SELECT D.IDDETALLEREQ, D.FECHA, D.OBSERVACION, D.FKEMPLE, D.FKREQ, E.NOMBRE, EM.NOMBRE AS 'NOMBREEMPLE' FROM detallereq D INNER JOIN estado E ON D.FKESTADO = E.IDESTADO INNER JOIN empleado EM ON EM.IDEMPLEADO = D.FKEMPLE;";
 			$resEstado=$mysqli->query($consulta);
 			if(mysqli_num_rows($resEstado)==0)
 			{
@@ -81,6 +82,8 @@
 			$result = mysqli_num_rows($resEstado);
 			if($result > 0){
 			while ($data = $resEstado->fetch_array(MYSQLI_BOTH)) {
+
+
 		?> 
 			<tr>
 				<td><?php echo ($data["IDDETALLEREQ"]); ?></td>
@@ -88,8 +91,8 @@
 				<td><?php echo $data["OBSERVACION"];?></td>
 				<td><?php echo $data["FKEMPLE"];?></td>
 				<td><?php echo ($data["FKREQ"]);?></td>
-				<td><?php echo $data["FKESTADO"];?></td>
-				<td><?php echo $data["FKEMPLEASIG"];?></td>
+				<td><?php echo $data["NOMBRE"];?></td>
+				<td><?php echo $data["NOMBREEMPLE"];?></td>
 				<td><a href="ModificarRequerimiento.php?cc=<?php echo $data['IDDETALLEREQ']; ?>"> <button type="button" class="btn btn-success">Modificar</button> </a> </td>
 				<td><a href="../index.php?c=requerimiento&a=Eliminar&cc=<?php echo $data['IDDETALLEREQ']; ?>"><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>
 			</tr>

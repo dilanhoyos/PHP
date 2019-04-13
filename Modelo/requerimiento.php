@@ -1,22 +1,28 @@
 <?php
 class Requerimiento
 {
-    var $id;
     var $fecha;
     var $observacion;
     var $emple;
-    var $req;
     var $estado;
     var $empleasi;
+    var $area;
 
     public function Registrar(Requerimiento $data)
 	{
         require 'Controlador/Conexion.php';
+        $sqlreq = "INSERT INTO `requisito`(`FKAREA`) VALUES ('$data->area')";
+        $mysqli->query($sqlreq) or die($mysqli->error);
+
+        $consulsql = "Select IDREQ from requisito order by IDREQ desc limit 1";
+        $result = mysqli_query($mysqli, $consulsql) or die("Ocurrio un error en la consulta SQL");
+        $fila = mysqli_fetch_array($result);
+        $REQID = $fila["IDREQ"];
         $sql = "INSERT INTO `detallereq`(`FECHA`, `OBSERVACION`, `FKEMPLE`, `FKREQ`, `FKESTADO`, `FKEMPLEASIG`) VALUES (
             '$data->fecha',
             '$data->observacion',
             '$data->emple',
-            '$data->req',
+            '$REQID',
             '$data->estado',
             '$data->empleasi')";
         $resultado = $mysqli->query($sql) or die($mysqli->error);

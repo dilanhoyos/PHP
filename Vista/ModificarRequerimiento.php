@@ -17,19 +17,19 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
 <body class="body1">
     <div class="container">
         <form class="form1" method="POST" action='../index.php?c=requerimiento&a=Modificar'>
-            <h1><center>MODIFICAR REQUERIMIENTO</center></h1>
+            <h1><center>MODIFICAR RADICADO</center></h1>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="ID">ID</label>
-                    <input type="text" class="form-control" id="txtId" name="txtId" placeholder="ID"  value="<?php ECHO $row['IDDETALLEREQ']; ?>">
+                    <input type="text" class="form-control" id="txtId" name="txtId" placeholder="ID"  value="<?php ECHO $row['IDDETALLEREQ']; ?> "readonly>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="Fecha">Fecha</label>
-                    <input type="date" class="form-control" id="txtFecha" name="txtFecha" min="<?php echo date("Y").'-'.date("m").'-'.date("d");?>" value="<?php echo $filas['FechaIni'];?>">
+                    <input type="date" class="form-control" id="txtFecha" name="txtFecha" min="<?php echo date ("Y/n/j"); ?>" value="<?php echo $row['FECHA'];?>">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="Observacion">Observacion</label>
-                    <textarea rows = "5" cols = "50" name = "description" id="txtObser" name="txtObser" value="<?php ECHO $row['OBSERVACION']; ?>"></textarea>                
+                    <textarea rows = "5" cols = "50" name = "description" id="txtObser" name="txtObser" ><?php echo $row['OBSERVACION']; ?></textarea>                
             </div>    
             </div>
             <div class="form-row">
@@ -87,12 +87,11 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
                             $result = mysqli_query($mysqli, $query) or die("Ocurrio un error en la consulta SQL");
                             while (($fila = mysqli_fetch_array($result)) != NULL) {
                                 if($row['FKESTADO'] === $fila["IDESTADO"]){
-                                    echo '<option value="'.$fila["IDESTADO"].'" class="custom-select" selected="true">'.$fila["NOMBRE"].' - '.$fila["IDESTADO"].'</option>';
+                                    echo '<option value="'.$fila["IDESTADO"].'" class="custom-select" selected="true">'.$fila["NOMBRE"].'</option>';
                                 }
                                 else{
-                                    echo '<option value="'.$fila["IDESTADO"].'" class="custom-select">'.$fila["NOMBRE"].' - '.$fila["IDESTADO"].'</option>';
+                                    echo '<option value="'.$fila["IDESTADO"].'" class="custom-select">'.$fila["NOMBRE"].'</option>';
                                 }
-                            echo '<option value="'.$fila["IDESTADO"].'" class="custom-select">'.$fila["NOMBRE"].'</option>';
                             }                           
                         ?>
                     </select>

@@ -22,7 +22,7 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="ID">ID</label>
-                    <input type="text" class="form-control" id="txtId" name="txtId" placeholder="ID"  value="<?php ECHO $row['IDAREA']; ?>">
+                    <input type="text" class="form-control" id="txtId" name="txtId" placeholder="ID"  value="<?php ECHO $row['IDAREA']; ?> "readonly>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="NOMBRE">Nombre</label>

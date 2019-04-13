@@ -1,5 +1,6 @@
 <?php 
 include '../Controlador/Conexion.php'; 
+include 'header.php';
 //$cc = $_GET['cc'];
 //$sql = "SELECT * FROM empleado where IDEMPLEADO = '$cc'";
 //$resultado1 = $mysqli->query($sql);
@@ -23,58 +24,37 @@ include '../Controlador/Conexion.php';
     <div class = "container">
  
         <form class="form1" method="POST" action='../index.php?c=requerimiento&a=Guardar'>
-            <h1><center>DETALLE DEL REQUERIMIENTO</center></h1>
+            <h1><center>DETALLE DEL RADICADO</center></h1>
             <div class="form-row">
-                
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                     <label for="Fecha">Fecha</label>
-                    <input type="date" class="form-control" id="txtFecha" name="txtFecha" value="<? echo date ("Y/n/j");  ?>">
+                    <input type="date" class="form-control" id="txtFecha" name="txtFecha" value="<? echo date ("Y/n/j");  ?>" readonly>
             
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                     <label for="Observacion">Persona Activa</label>
-                    <input type="text" class="form-control" id="txtPersona" name="txtPersona" value="<?php echo $_SESSION['USUARIO']; ?>">
-            </div>    
+                    <input type="text" class="form-control" id="txtPersona" name="txtPersona" value="<?php echo $_SESSION['user']; ?>" readonly>
+                </div>    
             </div>
             <div class="form-row">
-            <div class="form-group col-md-3">
-                    <label for="Empleado">Empleado</label>
+                <div class="form-group col-md-4">
+                    <label for="Requerimiento">Area</label>
                     <BR>
-                    <select name="rbempleado" id="rbempleado">
-                        <option disabled selected>Seleccione Una Opcion</option>                     
+                    <select name="rbAreaRadicado" id="rbAreaRadicado">
+                        <option disabled selected>Seleccione el Area </option>                 
                         <?php 
                             ini_set('display_errors', true);
                             error_reporting(E_ALL);
-                            $query="SELECT IDEMPLEADO, NOMBRE FROM `empleado` ORDER BY `Nombre`";
+                            $query="SELECT IDAREA,NOMBRE FROM `area` ORDER BY `NOMBRE`";
                             $result = mysqli_query($mysqli, $query) or die("Ocurrio un error en la consulta SQL");
                             while (($fila = mysqli_fetch_array($result)) != NULL) {
-                                if($row['FKEMPLEASIG'] === $fila["IDEMPLEADO"]){
-                                    echo '<option value="'.$fila["IDEMPLEADO"].'" class="custom-select" selected="true">'.$fila["NOMBRE"].' - '.$fila["IDEMPLEADO"].'</option>';
-                                }
-                                else{
-                                    echo '<option value="'.$fila["IDEMPLEADO"].'" class="custom-select">'.$fila["NOMBRE"].'</option>';
-                                }
-                            }                           
+                            $query="SELECT IDAREA,NOMBRE FROM `area` ORDER BY `NOMBRE`";
+                            echo '<option value="'.$fila["IDAREA"].'" class="custom-select">'.$fila["NOMBRE"].' - '.$fila["IDAREA"].'</option>';
+                            } 
                         ?>
                     </select>
                 </div>
-                <div class="form-group col-md-3">
-                    <label for="Requerimiento">Requerimiento</label>
-                    <BR>
-                    <select name="rbrequerimiento" id="rbrequerimiento">
-                        <option disabled selected>Seleccione Una Opcion</option>                     
-                        <?php 
-                            ini_set('display_errors', true);
-                            error_reporting(E_ALL);
-                            $query="SELECT IDREQ, FKAREA FROM `requisito` ORDER BY `IDREQ`";
-                            $result = mysqli_query($mysqli, $query) or die("Ocurrio un error en la consulta SQL");
-                            while (($fila = mysqli_fetch_array($result)) != NULL) {
-                            echo '<option value="'.$fila["IDREQ"].'" class="custom-select">'.$fila["FKAREA"].'</option>';
-                            }                           
-                        ?>
-                    </select>
-                </div>
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-4">
                     <label for="Estado">Estado</label>
                     <BR>
                     <select name="rbestado" id="rbestado">
@@ -90,7 +70,7 @@ include '../Controlador/Conexion.php';
                         ?>
                     </select>
                 </div>
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-4">
                     <label for="EmpleadoA">Empleado Asignado</label>
                     <BR>    
                     <select name="rbempa" id="rbempa">
@@ -106,14 +86,16 @@ include '../Controlador/Conexion.php';
                         ?>
                     </select>
                 </div>
-                <div class="form-row">
+            </div>
+            <div class="form-row">
                 <div class="form-group col-md-12">
-                   <textarea name="txtObser" id="txtObser" cols="115" rows="10"></textarea>
+                   <textarea name="txtObser" id="txtObser" cols="115" rows="10" ></textarea>
                 </div>
                 <div class="form-group col-md-5"></div>
                 <div class="form-group col-md-2">
-                <center><button type="submit" class="btn btn-primary">Radicar</button></center>
-                </div>
+            </div>
+            <center><button type="submit" class="btn btn-primary">Radicar</button></center>
+
         </form>
     </div>
     <!-- Optional JavaScript -->

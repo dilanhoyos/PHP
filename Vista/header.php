@@ -40,7 +40,7 @@ eeeeee
                         <a class="nav-link text-light" href="/phpproject/Vista/ListadoEmpleado.php">Empleado</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoRequerimiento.php">Requerimiento</a>
+                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoRequerimiento.php">Radicado</a>
                     </li>
                 </ul>
             </div>
@@ -56,7 +56,7 @@ eeeeee
                         <a class="nav-link text-light" href="/phpproject/Vista/ListadoArea.php">Area</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoRequerimiento.php">Requerimiento</a>
+                    <a class="nav-link text-light" href="/phpproject/Vista/ListadoRequerimiento.php">Radicado</a>
                     </li>
                 </ul>
             </div>
@@ -66,16 +66,10 @@ eeeeee
             <div class="col ">
                 <ul class="nav nav-pills nav-fill">
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="/phpproject/">Inicio</a>
+                    <a class="nav-link text-light" href="/phpproject/Vista/inicio.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoArea.php">Area</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoEmpleado.php">Empleado</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoRequerimiento.php">Requerimiento</a>
+                    <a class="nav-link text-light" href="/phpproject/Vista/ListadoRequerimiento.php">Radicado</a>
                     </li>
                 </ul>
             </div>

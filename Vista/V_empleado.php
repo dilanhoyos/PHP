@@ -35,7 +35,13 @@ include '../Controlador/Conexion.php';
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="CARGO">Cargo</label>
-                    <input type="text" class="form-control" id="txtCargo" name= "txtCargo" placeholder="Cargo">
+                    <br>
+                    <select name="txtCargo" id="txtCargo">
+                        <option disabled selected>Seleccione Una Opcion</option>                     
+                        <option>Administrador</option>                     
+                        <option>Jefe de Area</option>                     
+                        <option>Empleado</option>                     
+                    </select>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="EMAIL">Email</label>

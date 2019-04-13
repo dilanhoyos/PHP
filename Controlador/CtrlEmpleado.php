@@ -34,7 +34,7 @@ class CtrlEmpleado{
 		print_r ($alm);
 		     
 		$this->objEmpleado->Registrar($alm); // : no
-		header('Location: /phpproject/');	
+		header('Location: /phpproject/Vista/inicio.php');	
 	}
 
 	public function Modificar(){

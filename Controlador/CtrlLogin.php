@@ -6,7 +6,7 @@ class CtrlLogin{
         $usu = $_REQUEST['txtEmail'];
         $psw = $_REQUEST['txtPassword'];
 
-        $query="SELECT USUARIO, CONTRASENA FROM `login` WHERE USUARIO = '$usu'";
+        $query="SELECT USUARIO, CONTRASENA, rol FROM `login` WHERE USUARIO = '$usu'";
         $result = mysqli_query($mysqli, $query) or die("Ocurrio un error en la consulta SQL");
         if(($fila = mysqli_fetch_array($result)) != NULL){
             if($fila['CONTRASENA'] == $psw){
@@ -17,7 +17,7 @@ class CtrlLogin{
                 $_SESSION['user']=$fila['USUARIO'];
                 $_SESSION['verificar']=true;
                 $_SESSION['rol'] = $fila['rol'];		
-                header('Location: /phpproject/Vista/CrearRadicado.php');	            
+                header('Location: /phpproject/Vista/V_Requerimiento.php');	            
             }else{
                 header('Location: /phpproject/');	            
             }
