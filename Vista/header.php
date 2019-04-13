@@ -40,9 +40,6 @@ eeeeee
                         <a class="nav-link text-light" href="/phpproject/Vista/ListadoEmpleado.php">Empleado</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoEstado.php">Estado</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link text-light" href="/phpproject/Vista/ListadoRequerimiento.php">Requerimiento</a>
                     </li>
                 </ul>
@@ -78,19 +75,15 @@ eeeeee
                         <a class="nav-link text-light" href="/phpproject/Vista/ListadoEmpleado.php">Empleado</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="/phpproject/Vista/ListadoEstado.php">Estado</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link text-light" href="/phpproject/Vista/ListadoRequerimiento.php">Requerimiento</a>
                     </li>
                 </ul>
             </div>
         </div>
-
+<?php }else{
+    header('Location: /phpproject/');	            
+}?>
     </div>
   </header>
 </body>
 </html>
-<?php }else{
-    header('Location: /phpproject/');	            
-}?>
