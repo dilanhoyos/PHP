@@ -48,14 +48,14 @@ class CtrlEmpleado{
 		$alm->supervisor = $_REQUEST['rbSup'];
 		     
 		$this->objEmpleado->Modificar($alm); // : no
-		header('Location: /phpproject/');	
+		header('Location: /phpproject/Vista/inicio.php');	
 	}
 
 	public function Eliminar(){
 		$alm = new Empleado();
 		$alm->id = $_GET['cc'];
 		$this->objEmpleado->Eliminar($alm); // : no
-		header('Location: /phpproject/');	
+		header('Location: /phpproject/Vista/inicio.php');	
 	}
 
 }

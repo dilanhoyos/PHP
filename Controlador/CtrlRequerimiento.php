@@ -35,7 +35,7 @@ class CtrlRequerimiento{
 		$alm->empleasi = $_REQUEST['rbempa'];
 		$alm->area = $_REQUEST['rbAreaRadicado'];
 		$this->objRequerimiento->Registrar($alm); // : no
-		header('Location: Vista/inicio.php');	
+		header('Location: /phpproject/Vista/inicio.php');	
 	}
 	public function Modificar(){
         $alm = new Requerimiento();
@@ -48,12 +48,12 @@ class CtrlRequerimiento{
 		$alm->empleasi = $_REQUEST['rbempa'];
 		     
 		$this->objRequerimiento->Modificar($alm); // : no
-		header('Location: /phpproject/');	
+		header('Location: /phpproject/Vista/inicio.php');	
 	}
 	public function Eliminar(){
 		$alm = new Requerimiento();
 		$alm->id = $_GET['cc'];
 		$this->objRequerimiento->Eliminar($alm); // : no
-		header('Location: /phpproject/');	
+		header('Location: /phpproject/Vista/inicio.php');	
 	}
 }
