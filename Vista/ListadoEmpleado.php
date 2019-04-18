@@ -56,7 +56,7 @@
 		<br>
 		<br>
 		<div class="row table-responsive"> 
-			<table class="display table table-hover table-bordered" id="mitabla">
+			<table class="striped" id="mitabla">
 				<thead class="thead-dark">
 					<tr>   
 						<th scope="col">ID</th>

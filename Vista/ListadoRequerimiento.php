@@ -47,14 +47,8 @@
 		<div class="row">
 			<h2 style="text-align: center">Listado de Radicado</h2>
 		</div>
-		
-		<div class="row">
-			<a href="V_requerimiento.php" class="btn btn-primary">Nuevo Radicado</a>
-		</div>
-		<br>
-		<br>
 		<div class="row table-responsive"> 
-			<table class="display table table-hover table-bordered" id="mitabla">
+			<table class="striped" id="mitabla">
 				<thead class="thead-dark">
 					<tr>   
 						<th scope="col">ID</th>
@@ -71,7 +65,7 @@
 			<tbody>
 		<?php 
 		//////////////// CONSULTA A LA BASE DE DATOS ///////////////////
-			$consulta ="SELECT D.IDDETALLEREQ, D.FECHA, D.OBSERVACION, D.FKEMPLE, D.FKREQ, E.NOMBRE, EM.NOMBRE AS 'NOMBREEMPLE' FROM detallereq D INNER JOIN estado E ON D.FKESTADO = E.IDESTADO INNER JOIN empleado EM ON EM.IDEMPLEADO = D.FKEMPLE;";
+			$consulta ="SELECT D.IDDETALLEREQ, D.FECHA, D.OBSERVACION, D.FKEMPLE, D.FKREQ, E.NOMBRE, EM.NOMBRE AS 'NOMBREEMPLE', D.FKEMPLEASIG FROM detallereq D INNER JOIN estado E ON D.FKESTADO = E.IDESTADO INNER JOIN empleado EM ON EM.IDEMPLEADO = D.FKEMPLE;";
 			$resEstado=$mysqli->query($consulta);
 			if(mysqli_num_rows($resEstado)==0)
 			{
@@ -89,11 +83,11 @@
 				<td><?php echo ($data["IDDETALLEREQ"]); ?></td>
 				<td><?php echo $data["FECHA"]; ?></a></td>
 				<td><?php echo $data["OBSERVACION"];?></td>
-				<td><?php echo $data["FKEMPLE"];?></td>
+				<td><?php echo $data["NOMBREEMPLE"];?></td>
 				<td><?php echo ($data["FKREQ"]);?></td>
 				<td><?php echo $data["NOMBRE"];?></td>
-				<td><?php echo $data["NOMBREEMPLE"];?></td>
-				<td><a href="ModificarRequerimiento.php?cc=<?php echo $data['IDDETALLEREQ']; ?>"> <button type="button" class="btn btn-success">Modificar</button> </a> </td>
+				<td><?php echo $data["FKEMPLEASIG"];?></td>
+				<td><a href="ModificarRequerimiento.php?cc=<?php echo $data['IDDETALLEREQ']; ?>"> <button type="button" class="btn btn-success">Asignar</button> </a> </td>
 				<td><a href="../index.php?c=requerimiento&a=Eliminar&cc=<?php echo $data['IDDETALLEREQ']; ?>"><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>
 			</tr>
 		<?php 

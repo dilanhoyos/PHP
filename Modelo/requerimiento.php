@@ -24,7 +24,7 @@ class Requerimiento
             '$data->emple',
             '$REQID',
             '$data->estado',
-            '$data->empleasi')";
+             NULL)";
         $resultado = $mysqli->query($sql) or die($mysqli->error);
 
     }
@@ -47,13 +47,10 @@ class Requerimiento
     public function Modificar(Requerimiento $data)
 	{
         require 'Controlador/Conexion.php';
-        $sql = "UPDATE `detallereq` SET 
-        `FECHA`='$data->nombre',
-        `OBSERVACION`='$data->telefono',
-        `FKEMPLE`='$data->cargo',
-        `FKREQ`='$data->email',
-        `FKESTADO`='$data->area',
-        `FKEMPLEASIG`='$data->Supervisor' WHERE IDDETALLEREQ = '$data->id'";
+        $sql = "UPDATE `detallereq` 
+        SET 
+        `FKEMPLEASIG`='$data->empleasi' 
+        WHERE IDDETALLEREQ = '$data->id'";
         $resultado = $mysqli->query($sql) or die($mysqli->error);
 
     }

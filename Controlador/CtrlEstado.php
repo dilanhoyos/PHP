@@ -24,24 +24,26 @@ class CtrlEstado{
         $alm = new Estado();
         $alm->id = $_REQUEST['txtId'];
         $alm->nombre = $_REQUEST['txtNombre'];
-		$this->objEstado->Registrar($alm);
-		header('Location: /phpproject/');	
+	$this->objEstado->Registrar($alm);
+	header('Location: /phpproject/Vista/inicio.php');	
+	
 	}
 
 	public function Modificar(){
         $alm = new Estado();
         $alm->id = $_REQUEST['txtId'];
-        $alm->nombre = $_REQUEST['txtNombre'];
-		     
-		$this->objEstado->Modificar($alm);
-        header('Location: /phpproject/');
+        $alm->nombre = $_REQUEST['txtNombre'];     
+	$this->objEstado->Modificar($alm);
+	header('Location: /phpproject/Vista/inicio.php');	
+
 	}
 
 	public function Eliminar(){
-		$alm = new Estado();
-		$alm->id = $_GET['cc'];
-		$this->objEstado->Eliminar($alm);
-		header('Location: /phpproject/');	
+	$alm = new Estado();
+	$alm->id = $_GET['cc'];
+	$this->objEstado->Eliminar($alm);
+	header('Location: /phpproject/Vista/inicio.php');	
+
 	}
 
 }

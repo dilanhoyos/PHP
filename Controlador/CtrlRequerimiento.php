@@ -31,29 +31,25 @@ class CtrlRequerimiento{
         $alm->fecha = $_REQUEST['txtFecha'];
         $alm->observacion = $_REQUEST['txtObser'];
         $alm->emple = $EMPLEID;
-		$alm->estado = $_REQUEST['rbestado'];
-		$alm->empleasi = $_REQUEST['rbempa'];
+		$alm->estado = "1";
 		$alm->area = $_REQUEST['rbAreaRadicado'];
 		$this->objRequerimiento->Registrar($alm); // : no
-		header('Location: Vista/inicio.php');	
+		header('Location: Vista/V_requerimiento.php');	
 	}
 	public function Modificar(){
         $alm = new Requerimiento();
-        $alm->id = $_REQUEST['txtId'];
-        $alm->fecha = $_REQUEST['txtFecha'];
-        $alm->observacion = $_REQUEST['txtObser'];
-        $alm->emple = $_REQUEST['rbempleado'];
-        $alm->req = $_REQUEST['rbrequerimiento'];
-		$alm->estado = $_REQUEST['rbestado'];
+        $alm->id = $_REQUEST['txtId'];	
 		$alm->empleasi = $_REQUEST['rbempa'];
 		     
 		$this->objRequerimiento->Modificar($alm); // : no
-		header('Location: /phpproject/');	
+		header('Location: /phpproject/Vista/ListadoRequerimiento.php');	
+
 	}
 	public function Eliminar(){
 		$alm = new Requerimiento();
 		$alm->id = $_GET['cc'];
 		$this->objRequerimiento->Eliminar($alm); // : no
-		header('Location: /phpproject/');	
+		header('Location: /phpproject/Vista/inicio.php');	
+
 	}
 }

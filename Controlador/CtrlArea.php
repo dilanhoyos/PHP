@@ -27,7 +27,8 @@ class CtrlArea{
 		$alm->supervisor = $_REQUEST['rbSup'];
 		     
 		$this->objArea->Registrar($alm);
-		header('Location: /phpproject/');	
+		header('Location: /phpproject/Vista/inicio.php');	
+
 	}
 
 	public function Modificar(){
@@ -38,14 +39,16 @@ class CtrlArea{
 		print_r ($alm->supervisor );
 		     
 		$this->objArea->Modificar($alm);
-		header('Location: /phpproject/');	
+		header('Location: /phpproject/Vista/inicio.php');	
+
 	}
 
 	public function Eliminar(){
 		$alm = new Area();
 		$alm->id = $_GET['cc'];
 		$this->objArea->Eliminar($alm);
-		header('Location: /phpproject/');	
+		header('Location: /phpproject/Vista/inicio.php');	
+
 
 	}
 

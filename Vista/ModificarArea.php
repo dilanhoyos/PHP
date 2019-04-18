@@ -9,9 +9,16 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="../css/estilos.css">
-  <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<script>
+         $(document).ready(function() {
+            $('select').material_select();
+         });
+ </script>
   <title></title>
 </head>
 <body class="body1">
@@ -19,19 +26,19 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
     
         <form class="form1" method="POST" action='../index.php?c=area&a=Modificar'>
             <h1><center>MODIFICAR AREA</center></h1>
-            <div class="form-row">
-                <div class="form-group col-md-4">
+            <div class="row">
+                <div class="col s4">
                     <label for="ID">ID</label>
                     <input type="text" class="form-control" id="txtId" name="txtId" placeholder="ID"  value="<?php ECHO $row['IDAREA']; ?> "readonly>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="col s4">
                     <label for="NOMBRE">Nombre</label>
                     <input type="text" class="form-control" id="txtNombre" name="txtNombre" placeholder="Nombre" value="<?php echo $row['NOMBRE']; ?>">
                 </div>
-                <div class="form-group col-md-3">
+                <div class="col s4">
                     <label for="Super">Supervisor</label>
                     <BR>    
-                    <select name="rbSup" id="rbSup">
+                    <select class = "browser-default" name="rbSup" id="rbSup">
                         <option disabled selected>Seleccione Una Opcion</option>   
                         <?php 
                             ini_set('display_errors', true);
@@ -54,5 +61,7 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
             </div>
         </form>
     </div>
+    <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </body>
 </html>
