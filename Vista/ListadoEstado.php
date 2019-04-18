@@ -45,27 +45,28 @@
 		<BR>
 	<div class="container">
 		<div class="row">
-			<h2 style="text-align: center">Listado de Estados</h2>
+			<h2 style="text-align: center">MIS TAREAS</h2>
 		</div>
-		<div class="row">
-			<a href="V_estado.php" class="btn btn-primary">Nuevo Estado</a>
-		</div>
-		<br>
-		<br>
 		<div class="row table-responsive"> 
 			<table class="striped" id="mitabla">
 				<thead class="thead-dark">
 					<tr>   
-						<th scope="col">ID</th>
-						<th scope="col">NOMBRE</th>
+					<th scope="col">ID</th>
+						<th scope="col">FECHA</th>
+						<th scope="col">OBSERVACION</th>
+						<th scope="col">EMPLEADO</th>
+						<th scope="col">REQUISITO</th>
+						<th scope="col">ESTADO</th>
+						<th scope="col">EMPLEADO ASIGNADO</th>
 						<th scope="col"></th>
-						<th scope="col"></th>
+						<th scope="col"></th>	
 					</tr>
 				</thead> 
 			<tbody>
-		<?php 
+			<?php 
 		//////////////// CONSULTA A LA BASE DE DATOS ///////////////////
-			$consulta ="SELECT * FROM estado;";
+			$consulta ="SELECT D.IDDETALLEREQ, D.FECHA, D.OBSERVACION, D.FKEMPLE, D.FKREQ, E.NOMBRE, EM.NOMBRE AS 'NOMBREEMPLE', D.FKEMPLEASIG FROM detallereq D INNER JOIN estado E ON D.FKESTADO = E.IDESTADO INNER JOIN empleado EM ON EM.IDEMPLEADO = D.FKEMPLE
+			WHERE FKEMPLEASIG = '$cc'";
 			$resEstado=$mysqli->query($consulta);
 			if(mysqli_num_rows($resEstado)==0)
 			{
@@ -75,19 +76,20 @@
 					
 			$result = mysqli_num_rows($resEstado);
 			if($result > 0){
-
 			while ($data = $resEstado->fetch_array(MYSQLI_BOTH)) {
-				$E = new Estado(($data["IDESTADO"]),($data["NOMBRE"]));	
-		?>
-			<tr>
-				<td><?php echo ($data["IDESTADO"]); ?></td>
-				<td><?php echo $data["NOMBRE"]; ?></a></td>
-				<td><a href="ModificarEstado.php?cc=<?php echo $data['IDESTADO']; ?>"> <button type="button" class="btn btn-success">Modificar</button> </a> </td>
-				<!--
-					<td><a  href="#" button type="button" class="btn btn-danger" data-href="../index.php?c=estado&a=Eliminar&cc=<?//php echo $data['CC']; ?>" data-toggle="modal" data-target="#confirm-delete">Eliminar</button></a> </td>
-				-->
 
-				<td><a href="../index.php?c=estado&a=Eliminar&cc=<?php echo $data['IDESTADO']; ?>"><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>
+
+		?> 
+			<tr>
+				<td><?php echo ($data["IDDETALLEREQ"]); ?></td>
+				<td><?php echo $data["FECHA"]; ?></a></td>
+				<td><?php echo $data["OBSERVACION"];?></td>
+				<td><?php echo $data["NOMBREEMPLE"];?></td>
+				<td><?php echo ($data["FKREQ"]);?></td>
+				<td><?php echo $data["NOMBRE"];?></td>
+				<td><?php echo $data["FKEMPLEASIG"];?></td>
+				<td><a href="ModificarRequerimiento.php?cc=<?php echo $data['IDDETALLEREQ']; ?>"> <button type="button" class="btn btn-success">Solucionar</button> </a> </td>
+				<td><a href="../index.php?c=requerimiento&a=Eliminar&cc=<?php echo $data['IDDETALLEREQ']; ?>"><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>
 			</tr>
 		<?php 
 				}

@@ -34,6 +34,9 @@
                      <li > 
                         <a href="/phpproject/Vista/V_requerimiento.php">Radicado</a>
                      </li>
+                     <li > 
+                        <a href="/phpproject/Vista/ListadoEstado.php">Solucion</a>
+                     </li>
                 </ul>
          <?php }else if ($_SESSION['verificar'] && $_SESSION['rol'] == 1){ //JEFE DE AREA?> 
                 <ul class="left hide-on-med-and-down">
