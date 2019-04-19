@@ -14,9 +14,14 @@ class CtrlLogin{
                 { 
                     session_start(); 
                 } 
-                $_SESSION['user']=$fila['USUARIO'];
+                $US = $_REQUEST['txtEmail'];
+                $sqls = "SELECT E.IDEMPLEADO FROM login L INNER JOIN empleado E ON L.FKEMPLE = E.IDEMPLEADO WHERE L.USUARIO = '$US'";
+                $resulta = mysqli_query($mysqli, $sqls) or die("Ocurrio un error en la consulta SQL");
+                $kkk = mysqli_fetch_array($resulta);
+                $_SESSION['user']=$US;
                 $_SESSION['verificar']=true;
-                $_SESSION['rol'] = $fila['rol'];		
+                $_SESSION['rol'] = $fila['rol'];	
+                $_SESSION['CC'] = $kkk['IDEMPLEADO'];
                 header('Location: /phpproject/Vista/V_Requerimiento.php');	            
             }else{
                 header('Location: /phpproject/');	            

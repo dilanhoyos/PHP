@@ -1,7 +1,7 @@
 <?php 
 	$Page_Title = 'Listado de Empleados';
 	$Page = 'Informacion';
-	include ('header.php');
+	include 'header.php';
 	include "../Controlador/Conexion.php";	
 	include "../Modelo/estado.php";
 	/////////// VARIABLES DE CONSULTA ////////////////
@@ -57,7 +57,6 @@
 						<th scope="col">EMPLEADO</th>
 						<th scope="col">REQUISITO</th>
 						<th scope="col">ESTADO</th>
-						<th scope="col">EMPLEADO ASIGNADO</th>
 						<th scope="col"></th>
 						<th scope="col"></th>	
 					</tr>
@@ -65,33 +64,30 @@
 			<tbody>
 			<?php 
 		//////////////// CONSULTA A LA BASE DE DATOS ///////////////////
-			$consulta ="SELECT D.IDDETALLEREQ, D.FECHA, D.OBSERVACION, D.FKEMPLE, D.FKREQ, E.NOMBRE, EM.NOMBRE AS 'NOMBREEMPLE', D.FKEMPLEASIG FROM detallereq D INNER JOIN estado E ON D.FKESTADO = E.IDESTADO INNER JOIN empleado EM ON EM.IDEMPLEADO = D.FKEMPLE
-			WHERE FKEMPLEASIG = '$cc'";
+		 	$CCe = $_SESSION['CC'];
+			$consulta ="SELECT D.IDDETALLEREQ, D.FECHA, D.OBSERVACION, D.FKEMPLE, D.FKREQ, E.NOMBRE, EM.NOMBRE AS 'NOMBREEMPLE' FROM detallereq D INNER JOIN estado E ON D.FKESTADO = E.IDESTADO INNER JOIN empleado EM ON EM.IDEMPLEADO = D.FKEMPLE
+			WHERE D.FKEMPLEASIG = '$CCe'";
 			$resEstado=$mysqli->query($consulta);
 			if(mysqli_num_rows($resEstado)==0)
 			{
 				$mensaje = "<h1>No hay registros que coincidan con su criterio de busqueda..</h1>";
 			}
 			mysqli_close($mysqli);
-					
 			$result = mysqli_num_rows($resEstado);
 			if($result > 0){
 			while ($data = $resEstado->fetch_array(MYSQLI_BOTH)) {
-
-
-		?> 
-			<tr>
-				<td><?php echo ($data["IDDETALLEREQ"]); ?></td>
-				<td><?php echo $data["FECHA"]; ?></a></td>
-				<td><?php echo $data["OBSERVACION"];?></td>
-				<td><?php echo $data["NOMBREEMPLE"];?></td>
-				<td><?php echo ($data["FKREQ"]);?></td>
-				<td><?php echo $data["NOMBRE"];?></td>
-				<td><?php echo $data["FKEMPLEASIG"];?></td>
-				<td><a href="ModificarRequerimiento.php?cc=<?php echo $data['IDDETALLEREQ']; ?>"> <button type="button" class="btn btn-success">Solucionar</button> </a> </td>
-				<td><a href="../index.php?c=requerimiento&a=Eliminar&cc=<?php echo $data['IDDETALLEREQ']; ?>"><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>
-			</tr>
-		<?php 
+			?> 
+				<tr>
+					<td><?php echo ($data["IDDETALLEREQ"]); ?></td>
+					<td><?php echo $data["FECHA"]; ?></a></td>
+					<td><?php echo $data["OBSERVACION"];?></td>
+					<td><?php echo $data["NOMBREEMPLE"];?></td>
+					<td><?php echo ($data["FKREQ"]);?></td>
+					<td><?php echo $data["NOMBRE"];?></td>
+					<td><a href="ModificarReqEmpl.php?cc=<?php echo $data['IDDETALLEREQ']; ?>"> <button type="button" class="btn btn-success">Solucionar</button> </a> </td>
+					<td><a href="../index.php?c=requerimiento&a=Eliminar&cc=<?php echo $data['IDDETALLEREQ']; ?>"><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>
+				</tr>
+			<?php 
 				}
 			}
 		?>

@@ -31,7 +31,7 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
     <div class = "container">
  
         <form class="form1" method="POST" action='../index.php?c=requerimiento&a=Guardar'>
-            <h1><center>CREAR RADICADO</center></h1>
+            <h1><center>CREAR RADICADO</center></h1>    <?php echo $_SESSION['CC']; ?>
             <div class="row">
                 <div class="col s6">
                     <label for="Fecha">Fecha</label>

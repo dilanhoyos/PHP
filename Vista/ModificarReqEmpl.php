@@ -22,9 +22,9 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
 </head>
 <body class="body1">
     <div class="container">
-        <form class="form1" method="POST" action='../index.php?c=requerimiento&a=Modificar'>
+        <form class="form1" method="POST" action='../index.php?c=requerimiento&a=ModificarMejor'>
 
-            <h1><center>ASIGNAR EMPLEADO</center></h1>
+            <h1><center>MODIFICAR EMPLEADO</center></h1>
             <div class="row">
                 <div class="col s6">
                     <label for="ID">ID</label>
@@ -82,7 +82,27 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
                         ?>
                     </select>
                 </div>
-
+                <div class="col s4">
+                    <label for="Estado">Estado</label>
+                    <BR>
+                    <select class = "browser-default" name="rbestado" id="rbestado" required>
+                        <option></option>                     
+                        <?php 
+                            ini_set('display_errors', true);
+                            error_reporting(E_ALL);
+                            $query="SELECT IDESTADO, NOMBRE FROM `estado` WHERE IDESTADO > 2 ORDER BY `Nombre`";
+                            $result = mysqli_query($mysqli, $query) or die("Ocurrio un error en la consulta SQL");
+                            while (($fila = mysqli_fetch_array($result)) != NULL) {
+                                if($row['FKESTADO'] === $fila["IDESTADO"]){
+                                    echo '<option value="'.$fila["IDESTADO"].'" class="custom-select" selected="true">'.$fila["NOMBRE"].'</option>';
+                                }
+                                else{
+                                    echo '<option value="'.$fila["IDESTADO"].'" class="custom-select">'.$fila["NOMBRE"].'</option>';
+                                }
+                            }                           
+                        ?>
+                    </select>
+                </div>
                 <div class="col s12">
                     <label for="EmpleadoA">Empleado Asignado</label>
                     <BR>    

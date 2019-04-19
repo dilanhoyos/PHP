@@ -49,10 +49,19 @@ class Requerimiento
         require 'Controlador/Conexion.php';
         $sql = "UPDATE `detallereq` 
         SET 
-        `FKEMPLEASIG`='$data->empleasi' 
+        `FKEMPLEASIG`='$data->empleasi', `FKESTADO`='$data->estado'
         WHERE IDDETALLEREQ = '$data->id'";
         $resultado = $mysqli->query($sql) or die($mysqli->error);
+    }
 
+    public function ModificarMejorado(Requerimiento $data)
+	{
+        require 'Controlador/Conexion.php';
+        $sql = "UPDATE `detallereq` 
+        SET 
+        `FKEMPLEASIG`='$data->empleasi', `FKESTADO`='$data->estado'
+        WHERE IDDETALLEREQ = '$data->id'";
+        $resultado = $mysqli->query($sql) or die($mysqli->error);
     }
     
     public function Eliminar(Requerimiento $data)

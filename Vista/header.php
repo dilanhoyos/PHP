@@ -37,6 +37,9 @@
                      <li > 
                         <a href="/phpproject/Vista/ListadoEstado.php">Solucion</a>
                      </li>
+                     <li>
+                        <a class="right hide-on-med-and-down" href="/phpproject/Controlador/logout.php">Cerrar Sesion</a>
+                     </li>
                 </ul>
          <?php }else if ($_SESSION['verificar'] && $_SESSION['rol'] == 1){ //JEFE DE AREA?> 
                 <ul class="left hide-on-med-and-down">
@@ -52,6 +55,9 @@
                      <li class="nav-link text-light"> 
                         <a href="/phpproject/Vista/\ListadoRequerimiento.php">Radicado</a>
                      </li>
+                     <li>
+                        <a class="right hide-on-med-and-down" href="/phpproject/Controlador/logout.php">Cerrar Sesion</a>
+                     </li>
                 </ul> 
         <?php }else if ($_SESSION['verificar'] && $_SESSION['rol'] == 2){ //EMPLEADO?>
                  <ul class="left hide-on-med-and-down">
@@ -60,6 +66,12 @@
                      </li>
                      <li>
                         <a href="/phpproject/Vista/ListadoRequerimiento.php">Radicado</a>
+                     </li>                     
+                     <li>
+                        <a href="/phpproject/Vista/ListadoEstado.php">Radicados por Solucionar</a>
+                     </li>
+                     <li>
+                        <a class="right" href="/phpproject/Controlador/logout.php">Cerrar Sesion</a>
                      </li>
                 </ul>
         <?php }else{header('Location: /phpproject/');}?>                         
