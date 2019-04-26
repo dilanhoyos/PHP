@@ -29,18 +29,17 @@ include '../Controlador/Conexion.php';
             <div class="row">
                 <div class="col s4">
                     <label for="ID">ID</label>
-                    <input type="text" class="form-control" id="txtId" name="txtId" placeholder="ID">
+                    <input type="text" class="form-control" id="txtId" name="txtId" placeholder="ID" required >
                 </div>
                 <div class="col s4">
                     <label for="NOMBRE">Nombre</label>
-                    <input type="text" class="form-control" id="txtNombre" name="txtNombre" placeholder="Nombre">
+                    <input type="text" class="form-control" id="txtNombre" name="txtNombre" placeholder="Nombre" required>
                 </div>
                 <div class="col s4">
                     <label for="Supervisor">Supervisor</label>
                     <BR>
-                    <select class = "browser-default" name="rbSup" id="rbSup">
-                        <option disabled selected>Seleccione Una Opcion</option>   
-                        <option class="custom-select">Nulo</option>                  
+                    <select class = "browser-default" name="rbSup" id="rbSup" required>
+                        <option disabled selected></option>                  
                         <?php 
                             ini_set('display_errors', true);
                             error_reporting(E_ALL);

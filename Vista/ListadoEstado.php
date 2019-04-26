@@ -84,8 +84,7 @@
 					<td><?php echo $data["NOMBREEMPLE"];?></td>
 					<td><?php echo ($data["FKREQ"]);?></td>
 					<td><?php echo $data["NOMBRE"];?></td>
-					<td><a href="ModificarReqEmpl.php?cc=<?php echo $data['IDDETALLEREQ']; ?>"> <button type="button" class="btn btn-success">Solucionar</button> </a> </td>
-					<td><a href="../index.php?c=requerimiento&a=Eliminar&cc=<?php echo $data['IDDETALLEREQ']; ?>"><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>
+					<td><a href="ModificarReqEmpl.php?cc=<?php echo $data['IDDETALLEREQ']; ?>"> <button type="button" class="btn btn-success">Solucionar</button> </a></td>
 				</tr>
 			<?php 
 				}

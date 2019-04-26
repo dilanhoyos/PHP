@@ -31,23 +31,23 @@ include '../Controlador/Conexion.php';
             <div class="row">
                 <div class="col s4">
                     <label for="ID">ID</label>
-                    <input type="text" class="form-control" id="txtId" name="txtId" placeholder="ID">
+                    <input type="text" class="form-control" id="txtId" name="txtId" placeholder="ID" required>
                 </div>
                 <div class="col s4">
                     <label for="NOMBRE">Nombre</label>
-                    <input type="text" class="form-control" id="txtNombre" name="txtNombre" placeholder="Nombre">
+                    <input type="text" class="form-control" id="txtNombre" name="txtNombre" placeholder="Nombre" required>
                 </div>
                     <div class="col s4">
                     <label for="TELEFONO">Telefono</label>
-                    <input type="text" class="form-control" id="txtTelefono"  name="txtTelefono" placeholder="Telefono">
+                    <input type="text" class="form-control" id="txtTelefono"  name="txtTelefono" placeholder="Telefono" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col s3">
                     <label for="CARGO">Cargo</label>
                     <br>
-                    <select class = "browser-default" name="txtCargo" id="txtCargo">
-                        <option disabled selected>Seleccione Una Opcion</option>                     
+                    <select class = "browser-default" name="txtCargo" id="txtCargo" required>
+                        <option disabled selected></option>                     
                         <option>Administrador</option>                     
                         <option>Jefe de Area</option>                     
                         <option>Empleado</option>                     
@@ -55,13 +55,13 @@ include '../Controlador/Conexion.php';
                 </div>
                 <div class="col s3">
                     <label for="EMAIL">Email</label>
-                    <input type="email" class="form-control" id="txtEmail" name= "txtEmail" placeholder="Email">
+                    <input type="email" class="form-control" id="txtEmail" name= "txtEmail" placeholder="Email" required>
                 </div>
                 <div class="col s3">
                     <label for="Area">Area</label>
                     <BR>
-                    <select class = "browser-default" name="rbarea" id="rbarea">
-                        <option disabled selected>Seleccione Una Opcion</option>                     
+                    <select class = "browser-default" name="rbarea" id="rbarea" required>
+                        <option disabled selected></option>                     
                         <?php 
                             ini_set('display_errors', true);
                             error_reporting(E_ALL);
@@ -76,7 +76,8 @@ include '../Controlador/Conexion.php';
                 <div class="col s3">
                     <label for="Super">Supervisor</label>
                     <BR>    
-                    <select class = "browser-default" name="rbSup" id="rbSup">
+                    <select class = "browser-default" name="rbSup" id="rbSup"required >
+                    <option disabled selected></option>     
                     <?php 
                             ini_set('display_errors', true);
                             error_reporting(E_ALL);

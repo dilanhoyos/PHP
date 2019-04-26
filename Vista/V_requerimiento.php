@@ -1,5 +1,6 @@
 <?php 
 include '../Controlador/Conexion.php'; 
+include '../Modelo/requerimiento.php'; 
 include 'header.php';
 
 $sql = "SELECT IDESTADO,NOMBRE FROM `estado` ORDER BY `IDESTADO`";
@@ -25,17 +26,17 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
             $('select').material_select();
          });
       </script>
-
+     
 <body>
     <br>
     <div class = "container">
  
         <form class="form1" method="POST" action='../index.php?c=requerimiento&a=Guardar'>
-            <h1><center>CREAR RADICADO</center></h1>    <?php echo $_SESSION['CC']; ?>
+            <h1><center>CREAR RADICADO</center></h1>  
             <div class="row">
                 <div class="col s6">
                     <label for="Fecha">Fecha</label>
-                    <input type="date" class="form-control" id="txtFecha" name="txtFecha" value="<? echo date ("Y/n/j");  ?>" readonly>
+                    <input type="date" class="form-control" id="txtFecha" name="txtFecha" value="<? echo date("Y-m-d");  ?>" readonly>
             
                 </div>
                 <div class="col s6">
@@ -47,8 +48,8 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
                 <div class="col s6">
                     <label for="Requerimiento">Area</label>
                     <BR>
-                    <select class = "browser-default" name="rbAreaRadicado" id="rbAreaRadicado">
-                        <option disabled selected>Seleccione el Area </option>                 
+                    <select class = "browser-default" name="rbAreaRadicado" id="rbAreaRadicado" required>
+                        <option disabled selected> </option>                 
                         <?php 
                             ini_set('display_errors', true);
                             error_reporting(E_ALL);
@@ -68,13 +69,12 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
             </div>
             <div class="row">
                 <div class="col s12">
-                   <textarea name="txtObser" id="txtObser" cols="115" rows="800" ></textarea>
+                   <textarea name="txtObser" id="txtObser" cols="115" rows="800" required></textarea>
                 </div>
                 <div class="form-group col-md-5"></div>
                 <div class="form-group col-md-2">
             </div>
             <center><button type="submit" class="btn btn-primary">Radicar</button></center>
-
         </form>
     </div>
      <!-- Compiled and minified JavaScript -->
