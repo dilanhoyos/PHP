@@ -26,6 +26,13 @@ class Requerimiento
             '$data->estado',
              NULL)";
         $resultado = $mysqli->query($sql) or die($mysqli->error);
+        if($resultado == 1)
+            header('Location: /phpproject/Vista/ListadoRequerimiento.php?confirmacion=1');	
+        else{
+            $str = "Location: /phpproject/Vista/ERROR.php?p=".$resultado;	
+            header($str);	
+        }
+
 
     }
     

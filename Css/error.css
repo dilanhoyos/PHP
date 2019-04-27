@@ -1,0 +1,100 @@
+
+html {
+  height: 100%
+}
+body {
+  background-image: url('assets/bg_cloud.png');
+  background-image: url('assets/bg_cloud.png'), -webkit-radial-gradient(center center, circle contain, #bcd669 50%, #86b650 150%);
+  background-image: url('assets/bg_cloud.png'), -moz-radial-gradient(center center, circle contain, #bcd669 50%, #86b650 150%);
+  background-image: url('assets/bg_cloud.png'), -o-radial-gradient(center center, circle contain, #bcd669 50%, #86b650 150%);
+  background-image: url('assets/bg_cloud.png'), -ms-radial-gradient(center center, circle contain, #bcd669 50%, #86b650 150%);
+  background-color: #bcd669;
+  background-repeat: repeat-x;
+  background-position: bottom;
+  color: white;
+  font-family: arial, sans-serif;
+  padding-bottom: 80px;
+  text-align: 1.5em;
+  overflow-y: hidden;
+}
+.content {
+  margin: 0 auto;
+  padding-top: 40px;
+  text-align: center;
+  width: auto;
+
+}
+#logo {
+  background-image: url('assets/groupon_tracking_white_wordmark.png');
+  background-repeat: no-repeat;
+  border-bottom: 2px groove #c4dfaf;
+  display: block;
+  height: 38px;
+  margin: auto;
+  padding-bottom: 10px;
+  width: 310px;
+}
+h1 {
+  color: #72ac45;
+  font-size: 60px;
+  margin: 5px auto;
+  padding-top: 25px;
+  text-shadow: 1px 1px #d9eacb, -1px -1px #3a5823;
+}
+h2 {
+  color: #5a8836;
+  font-weight: lighter;
+  font-size: 24px;
+  margin: 0 0 20px;
+}
+h2 small {
+  font-style: italic;
+}
+.cat {
+  background-image: url('assets/cloud_cat_rgb.png');
+  background-repeat: no-repeat;
+  height: 165px;
+  margin: 20px auto 0;
+  position: relative;
+  width: 223px;
+}
+.paragraph {
+  margin: auto;
+  width: auto;
+}
+a {
+  color: #0076A8;
+}
+p {
+  color: #5a8836;
+}
+.foot {
+  font-size: 14px;
+  font-style: italic;
+  padding-top: 20px;
+}
+
+/* image retina display */
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+screen and (min--moz-device-pixel-ratio: 2) {
+  html {
+    height: auto;
+  }
+  body {
+    background-repeat: no-repeat;
+    padding-bottom: 100px;
+  }
+  .content {
+    width: auto;
+  }
+  #logo {
+    background-image: url('assets/groupon_tracking_white_wordmark@2x.png') !important;
+    background-size: 306px 38px;
+    margin: auto;
+    width: 306px;
+  }
+  .cat {
+    background: url('assets/cloud_cat_rgb@2x.png') !important;
+    background-size: 223px 165px;
+  }
+}

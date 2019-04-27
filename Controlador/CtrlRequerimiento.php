@@ -34,7 +34,7 @@ class CtrlRequerimiento{
 		$alm->estado = "1";
 		$alm->area = $_REQUEST['rbAreaRadicado'];
 		$this->objRequerimiento->Registrar($alm); // : no
-		header('Location: Vista/V_requerimiento.php');	
+		//header('Location: Vista/V_requerimiento.php');	
 	}
 	public function Modificar(){
         $alm = new Requerimiento();

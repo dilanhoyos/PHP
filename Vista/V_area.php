@@ -18,6 +18,8 @@ include '../Controlador/Conexion.php';
          $(document).ready(function() {
             $('select').material_select();
          });
+         $(document).ready(function(){ Materialize.toast('I am Alert', 4000) });
+
       </script>
 
 </head>
@@ -52,7 +54,7 @@ include '../Controlador/Conexion.php';
                     </select>
                 </div>
             </div>
-            <center><button type="submit" class="btn btn-primary">Registrar</button></center>
+            <center><button onclick="M.toast({html: 'I am a toast'})" type="submit" class="btn btn-primary">Registrar</button></center>
             </div>
         </form>
     </div>

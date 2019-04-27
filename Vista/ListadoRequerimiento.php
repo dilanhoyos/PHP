@@ -6,6 +6,12 @@
 	include "../Modelo/empleado.php";
 	/////////// VARIABLES DE CONSULTA ////////////////
 	$where="";
+	if(isset($_REQUEST['confirmacion']))
+		if($_REQUEST['confirmacion'] == 1)
+			echo "<script> $(function() {
+				Materialize.toast();
+			}); </script>";
+			echo '<script language="javascript">alert("Guardado Exitoso");</script>'; 
 ?>
 <html lang="es"> <!-- Lenguaje español -->
 <head>
