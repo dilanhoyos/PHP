@@ -19,6 +19,18 @@ class Area{
         $resultado = $mysqli->query($sql) or die($mysqli->error);
     }
 
+    public function Existe(Area $data){
+        require 'Controlador/Conexion.php';
+        $sql = "SELECT * FROM area WHERE IDAREA ='$data->id'";
+        $resultado = $mysqli->query($sql) or die($mysqli->error);
+        if($resultado)
+         $str = "Location: /phpproject/Vista/ERROR.php";
+         header($str);
+   
+    }
+
+
+
 	public function __CONSTRUCT()
 	{
 	}

@@ -94,7 +94,7 @@ screen and (min--moz-device-pixel-ratio: 2) {
     width: 306px;
   }
   .cat {
-    background: url('assets/cloud_cat_rgb@2x.png') !important;
+    background: url("../Resource/error.jpg") !important;
     background-size: 223px 165px;
   }
 }

@@ -11,11 +11,7 @@
 <head>
     <meta name="index.php"  content="text/html;" http-equiv="content-type" charset="utf-8"><!-- Utf que hace que la letra salga bien -->
 	<meta name="viewport" content="width=device-width, initial-scale=1"> <!--Etiqueta bootstrap la cual detcta que si es un dispositivo movil se va a adaptar a esa pantalla-->
-	<link href="../css/bootstrap.min.css" rel="stylesheet">
-	<link href="../css/bootstrap-theme.css" rel="stylesheet">
 	<script src="../js/jquery-3.3.1.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="../css/estilos.css">
 	<link rel="stylesheet" href="../css/jquery.dataTables.min.css">
 	<script src="../js/jquery.dataTables.min.js"></script>
 	<script>
@@ -40,10 +36,11 @@
 			});
 		});
 	</script>
+	</script>
 </head>
 <body>
 <BR>
-	<div class="container">
+	<div>
 		<div class="row">
 			<h2 style="text-align: center">Listado de Area</h2>
 		</div>

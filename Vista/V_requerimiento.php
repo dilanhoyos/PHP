@@ -26,7 +26,17 @@ $row = $resultado1->fetch_array(/*MYSQL_ASSOC*/);//SOLO VA A SELECCIONAR UN REGI
             $('select').material_select();
          });
       </script>
-     
+      <?php
+       if(isset($_REQUEST['confirmacion'])){
+		if($_REQUEST['confirmacion'] == 1){
+            ?>
+           	<div class="card green">
+        	 <p>Se Genero el radicado Correctamente</p>
+			</div>
+           <?php 
+            }
+        }
+?>
 <body>
     <br>
     <div class = "container">

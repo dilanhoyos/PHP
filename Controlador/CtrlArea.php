@@ -25,7 +25,7 @@ class CtrlArea{
         $alm->id = $_REQUEST['txtId'];
         $alm->nombre = $_REQUEST['txtNombre'];
 		$alm->supervisor = $_REQUEST['rbSup'];
-		     
+		$this->objArea->Existe($alm);    
 		$this->objArea->Registrar($alm);
 		header('Location: /phpproject/Vista/inicio.php');	
 
@@ -40,7 +40,6 @@ class CtrlArea{
 		     
 		$this->objArea->Modificar($alm);
 		header('Location: /phpproject/Vista/inicio.php');	
-
 	}
 
 	public function Eliminar(){
