@@ -43,14 +43,11 @@
 		<div class="row">
 			<h2 style="text-align: center">Listado de Empleados</h2>
 		</div>
-		<!--CONDICIONAL QUE ROL ES -->
-		<div class="row">
+		<div>
+		<div class ="row">
 			<a href="V_empleado.php" class="btn btn-primary">Nuevo Empleado</a>
 		</div>
 		<!--FIN CONDICIONAL-->
-
-		<br>
-		<br>
 		<div class="row table-responsive"> 
 			<table class="striped" id="mitabla">
 				<thead class="thead-dark">
@@ -99,6 +96,8 @@
 		?>
 			</table>
 		</div>
+		
+		
 		<!--
 	<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">

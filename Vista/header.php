@@ -15,7 +15,7 @@
 
     <body class="body1" style="background-color : #fafafa ">
     <header style="background-color: #393e46">
-    <div>
+    <div class="navbar-fixed">
         <nav style="background-color: #1565c0">
         <?php if($_SESSION['verificar'] && $_SESSION['rol'] == 0){ //ADMINISTRADOR?> 
             <div class="nav-wrapper">
@@ -37,6 +37,9 @@
                      </li>
                      <li > 
                         <a href="/phpproject/Vista/ListadoEstado.php">Solucion</a>
+                     </li>
+                     <li > 
+                        <a href="/phpproject/Vista/adminuser.php">AdminUser</a>
                      </li>
                 </ul>
                 <ul class="right hide-on-med-and-down">

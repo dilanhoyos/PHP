@@ -40,7 +40,7 @@ class CtrlRequerimiento{
         $alm = new Requerimiento();
         $alm->id = $_REQUEST['txtId'];	
 		$alm->empleasi = $_REQUEST['rbempa'];
-		     $alm->estado = 2;
+		$alm->estado = 2;
 		$this->objRequerimiento->Modificar($alm); // : no
 		header('Location: /phpproject/Vista/ListadoRequerimiento.php');	
 	}

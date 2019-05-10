@@ -1,5 +1,6 @@
 <?php
 class CtrlLogin{
+    
     public function Verificar(){
         require 'Controlador/Conexion.php';
 
@@ -30,7 +31,12 @@ class CtrlLogin{
             header('Location: /phpproject/');//pagina de error <3	            
 
         }
+    }
 
-	}
+   
+ 
+
+   
+
 }
 ?>

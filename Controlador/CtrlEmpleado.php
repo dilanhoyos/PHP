@@ -32,7 +32,7 @@ class CtrlEmpleado{
 		$alm->supervisor = $_REQUEST['rbSup'];
 		print_r ($alm->supervisor);
 		print_r ($alm);
-		     
+		$this->objEmpleado->Existe($alm);    
 		$this->objEmpleado->Registrar($alm); // : no
 		header('Location: /phpproject/Vista/inicio.php');	
 	}

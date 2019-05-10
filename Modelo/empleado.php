@@ -26,6 +26,15 @@ class Empleado
         $resultado = $mysqli->query($sql) or die($mysqli->error);
 
     }
+
+    public function Existe(Empleado $data){
+        require 'Controlador/Conexion.php';
+        $sql = "SELECT * FROM empleado WHERE IDEMPLEADO ='$data->id'";
+        $resultado = $mysqli->query($sql) or die($mysqli->error);
+        if($resultado)
+         $str = "Location: /phpproject/Vista/ERROR.php";
+         header($str);
+    }
     
     function __CONSTRUCT1($Id, $nom, $tel, $car, $mail, $Area, $Sup){
         

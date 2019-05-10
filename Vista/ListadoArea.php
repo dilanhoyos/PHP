@@ -14,6 +14,7 @@
 	<script src="../js/jquery-3.3.1.min.js"></script>
 	<link rel="stylesheet" href="../css/jquery.dataTables.min.css">
 	<script src="../js/jquery.dataTables.min.js"></script>
+	<script src="../js/jquery.tabledit.js"></script>
 	<script>
 		$(document).ready(function()//va a estar leyendo jqyery
 		{
@@ -40,10 +41,11 @@
 </head>
 <body>
 <BR>
-	<div>
+	<div class ="container">
 		<div class="row">
 			<h2 style="text-align: center">Listado de Area</h2>
 		</div>
+		<div>
 		<div class="row">
 			<a href="V_area.php" class="btn btn-primary">Nueva Area</a>
 		</div>
@@ -89,6 +91,7 @@
 			}
 		?>
 			</table>
+		</div>	
 		</div>
 		<!--
 	<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

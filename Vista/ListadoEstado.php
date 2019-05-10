@@ -43,6 +43,8 @@
 		<div class="row">
 			<h2 style="text-align: center">MIS TAREAS</h2>
 		</div>
+		<div class="container">
+		
 		<div class="row table-responsive"> 
 			<table class="striped" id="mitabla">
 				<thead class="thead-dark">
@@ -87,6 +89,7 @@
 			}
 		?>
 			</table>
+		</div>
 		</div>
 		<!--
 	<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
