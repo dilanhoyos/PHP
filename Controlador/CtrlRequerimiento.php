@@ -37,12 +37,16 @@ class CtrlRequerimiento{
 		//header('Location: Vista/V_requerimiento.php');	
 	}
 	public function Modificar(){
+		session_start();
+		require 'Controlador/Conexion.php';
 		$alm = new Requerimiento();
-		$usuuu = $_SESSION['user'];
-		$consulsql = "Select FKEMPLE from login where usuario = '$usuuu'";
+
+		$ID = $_REQUEST['txtId'];	
+		$consulsql = "Select FKEMPLE from detallereq where IDDETALLEREQ = '$ID'";
         $result = mysqli_query($mysqli, $consulsql) or die("Ocurrio un error en la consulta SQL");
         $fila = mysqli_fetch_array($result);
-        $EMPLEID = $fila["FKEMPLE"];
+		$EMPLEID = $fila["FKEMPLE"]; 
+		
         $alm->id = $_REQUEST['txtId'];	
 		$alm->empleasi = $_REQUEST['rbempa'];
 		$alm->estado = 2;
