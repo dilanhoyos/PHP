@@ -8,6 +8,7 @@ class Empleado
     var $email;
     var $area;
     var $supervisor;
+    
 
     public function Registrar(Empleado $data)
 	{
@@ -20,10 +21,14 @@ class Empleado
             '$data->email',
             '$data->area',
             '$data->supervisor')";
-
-            print_r($data->area);
-            print_r($sql);
         $resultado = $mysqli->query($sql) or die($mysqli->error);
+        $sqlog = "INSERT INTO `login`(`USUARIO`, `CONTRASENA`,`ROL`,`FKEMPLE`) VALUES (
+            '$data->usu',
+            '$data->pass',
+            '$data->cargo',
+            '$data->id')";
+        $resultadoS = $mysqli->query($sqlog) or die($mysqli->error);
+        
 
     }
 

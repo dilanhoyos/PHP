@@ -48,9 +48,9 @@ include '../Controlador/Conexion.php';
                     <br>
                     <select class = "browser-default" name="txtCargo" id="txtCargo" required>
                         <option disabled selected></option>                     
-                        <option>Administrador</option>                     
-                        <option>Jefe de Area</option>                     
-                        <option>Empleado</option>                     
+                        <option value = "0">Administrador</option>                     
+                        <option value = "1">Jefe de Area</option>                     
+                        <option value = "2">Empleado</option>                     
                     </select>
                 </div>
                 <div class="col s3">
@@ -89,7 +89,24 @@ include '../Controlador/Conexion.php';
                         ?>
                </select>
                 </div>
+                <br>
+                <br>
+                <br>
+                <br>
+              
+                <div class=row>
+                <br>
+                    <div class="col s4">
+                        <label for="Usuario">Usuario</label>
+                        <input type="text" class="form-control" id="txtUsu" name="txtUsu" placeholder="Usuario" required>
+                    </div>
+                    <div class="col s4">
+                        <label for="PASSWORD">Password</label>
+                        <input type="password" class="form-control" id="txtPass" name="txtPass" placeholder="Clave" required>
+                    </div>
+                </div>
                </div>
+               
             </div>
                 <center><button type="submit" class="btn btn-primary">Registrar</button></center>
             </div>

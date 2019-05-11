@@ -66,7 +66,8 @@
 			<tbody>
 		<?php 
 		//////////////// CONSULTA A LA BASE DE DATOS ///////////////////
-			$consulta ="SELECT * FROM empleado;";
+		$consulta ="SELECT E.IDEMPLEADO,E.NOMBRE,E.TELEFONO,E.CARGO,E.EMAIL,E.FKAREA,E.FKEMPLE,A.NOMBRE AS NOMBRA FROM empleado E
+		INNER JOIN area  A ON A.IDAREA = E.FKAREA;";
 			$resEstado=$mysqli->query($consulta);
 			if(mysqli_num_rows($resEstado)==0)
 			{
@@ -85,7 +86,7 @@
 				<td><?php echo $data["TELEFONO"];?></td>
 				<td><?php echo $data["CARGO"];?></td>
 				<td><?php echo ($data["EMAIL"]);?></td>
-				<td><?php echo $data["FKAREA"];?></td>
+				<td><?php echo $data["NOMBRA"];?></td>
 				<td><?php echo $data["FKEMPLE"];?></td>
 				<td><a href="ModificarEmpleado.php?cc=<?php echo $data['IDEMPLEADO']; ?>"> <button type="button" class="btn btn-success">Modificar</button> </a> </td>
 				<!--<td><a href="../index.php?c=empleado&a=Eliminar&cc=<?php echo $data['IDEMPLEADO']; ?>"><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>-->

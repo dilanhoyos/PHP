@@ -30,9 +30,9 @@ class CtrlEmpleado{
 		$alm->email = $_REQUEST['txtEmail'];
         $alm->area = $_REQUEST['rbarea'];
 		$alm->supervisor = $_REQUEST['rbSup'];
-		print_r ($alm->supervisor);
-		print_r ($alm);
-		$this->objEmpleado->Existe($alm);    
+		$alm->usu = $_REQUEST['txtUsu'];
+		$alm->pass = $_REQUEST['txtPass'];
+		//$this->objEmpleado->Existe($alm);    
 		$this->objEmpleado->Registrar($alm); // : no
 		header('Location: /phpproject/Vista/inicio.php');	
 	}
