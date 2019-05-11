@@ -5,8 +5,7 @@ include "../Controlador/Conexion.php";
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="../js/jquery.tabledit.js"></script>
 
@@ -76,7 +75,7 @@ $('#example1').Tabledit({
         <table class="striped" id="example1" style="border:1px solide red">
     	<tr>
         <th>USUARIO</th>
-        <th>CONTRASEÑA</th>
+        <th>CLAVE</th>
         <th>ROL</th>
         <th>EMPLEADO</th>
         </th></th>
