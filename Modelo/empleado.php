@@ -20,7 +20,7 @@ class Empleado
             '$data->cargo',
             '$data->email',
             '$data->area',
-            '$data->supervisor')";
+            NULL)";
         $resultado = $mysqli->query($sql) or die($mysqli->error);
         $sqlog = "INSERT INTO `login`(`USUARIO`, `CONTRASENA`,`ROL`,`FKEMPLE`) VALUES (
             '$data->usu',

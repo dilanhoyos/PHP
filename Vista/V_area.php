@@ -29,29 +29,13 @@ include '../Controlador/Conexion.php';
         <form class="form1" method="POST" action='../index.php?c=area&a=Guardar'>
             <h1><center>CREAR AREA</center></h1>
             <div class="row">
-                <div class="col s4">
+                <div class="col s6">
                     <label for="ID">ID</label>
                     <input type="text" class="form-control" id="txtId" name="txtId" placeholder="ID" required >
                 </div>
-                <div class="col s4">
+                <div class="col s6">
                     <label for="NOMBRE">Nombre</label>
                     <input type="text" class="form-control" id="txtNombre" name="txtNombre" placeholder="Nombre" required>
-                </div>
-                <div class="col s4">
-                    <label for="Supervisor">Supervisor</label>
-                    <BR>
-                    <select class = "browser-default" name="rbSup" id="rbSup" required>
-                        <option disabled selected></option>                  
-                        <?php 
-                            ini_set('display_errors', true);
-                            error_reporting(E_ALL);
-                            $query="SELECT IDEMPLEADO,NOMBRE FROM `empleado` ORDER BY `NOMBRE`";
-                            $result = mysqli_query($mysqli, $query) or die("Ocurrio un error en la consulta SQL");
-                            while (($fila = mysqli_fetch_array($result)) != NULL) {
-                            echo '<option value="'.$fila["IDEMPLEADO"].'" class="custom-select">'.$fila["NOMBRE"].' - '.$fila["IDEMPLEADO"].'</option>';
-                            } 
-                        ?>
-                    </select>
                 </div>
             </div>
             <center><button onclick="M.toast({html: 'I am a toast'})" type="submit" class="btn btn-primary">Registrar</button></center>

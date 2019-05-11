@@ -15,7 +15,7 @@ class Area{
         $sql = "INSERT INTO `area`(`IDAREA`, `NOMBRE`, `FKEMPLE`) VALUES (
             '$data->id',
             '$data->nombre',
-            '$data->supervisor')";
+            NULL)";
         $resultado = $mysqli->query($sql) or die($mysqli->error);
     }
 

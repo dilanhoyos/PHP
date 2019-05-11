@@ -43,7 +43,7 @@ include '../Controlador/Conexion.php';
                 </div>
             </div>
             <div class="row">
-                <div class="col s3">
+                <div class="col s4">
                     <label for="CARGO">Cargo</label>
                     <br>
                     <select class = "browser-default" name="txtCargo" id="txtCargo" required>
@@ -53,11 +53,11 @@ include '../Controlador/Conexion.php';
                         <option value = "2">Empleado</option>                     
                     </select>
                 </div>
-                <div class="col s3">
+                <div class="col s4">
                     <label for="EMAIL">Email</label>
                     <input type="email" class="form-control" id="txtEmail" name= "txtEmail" placeholder="Email" required>
                 </div>
-                <div class="col s3">
+                <div class="col s4">
                     <label for="Area">Area</label>
                     <BR>
                     <select class = "browser-default" name="rbarea" id="rbarea" required>
@@ -73,22 +73,7 @@ include '../Controlador/Conexion.php';
                         ?>
                     </select>
                 </div>
-                <div class="col s3">
-                    <label for="Super">Supervisor</label>
-                    <BR>    
-                    <select class = "browser-default" name="rbSup" id="rbSup"required >
-                    <option disabled selected></option>     
-                    <?php 
-                            ini_set('display_errors', true);
-                            error_reporting(E_ALL);
-                            $query="SELECT IDEMPLEADO,NOMBRE FROM `empleado` ORDER BY `NOMBRE`";
-                            $result = mysqli_query($mysqli, $query) or die("Ocurrio un error en la consulta SQL");
-                            while (($fila = mysqli_fetch_array($result)) != NULL) {
-                            echo '<option value="'.$fila["IDEMPLEADO"].'" class="custom-select">'.$fila["NOMBRE"].' - '.$fila["IDEMPLEADO"].'</option>';
-                            } 
-                        ?>
-               </select>
-                </div>
+
                 <br>
                 <br>
                 <br>
