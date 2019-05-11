@@ -54,21 +54,47 @@ class Requerimiento
     public function Modificar(Requerimiento $data)
 	{
         require 'Controlador/Conexion.php';
-        $sql = "UPDATE `detallereq` 
-        SET 
-        `FKEMPLEASIG`='$data->empleasi', `FKESTADO`='$data->estado'
-        WHERE IDDETALLEREQ = '$data->id'";
-        $resultado = $mysqli->query($sql) or die($mysqli->error);
+        //$sql = "UPDATE `detallereq` 
+        //SET 
+        //`FKEMPLEASIG`='$data->empleasi', `FKESTADO`='$data->estado'
+        //WHERE IDDETALLEREQ = '$data->id'";
+        $sqlreq = "INSERT INTO `requisito`(`FKAREA`) VALUES ('$data->area')";
+        $mysqli->query($sqlreq) or die($mysqli->error);
+        $consulsql = "Select IDREQ from requisito order by IDREQ desc limit 1";
+        $result = mysqli_query($mysqli, $consulsql) or die("Ocurrio un error en la consulta SQL");
+        $fila = mysqli_fetch_array($result);
+        $REQID = $fila["IDREQ"];
+        $sqlInsert = "INSERT INTO `detallereq`(`FECHA`, `OBSERVACION`, `FKEMPLE`, `FKREQ`, `FKESTADO`, `FKEMPLEASIG`) VALUES (
+            '$data->fecha',
+            '$data->observacion',
+            '$data->emple',
+            '$REQID',
+            '$data->estado',
+            '$data->empleasi')";
+        $resultado = $mysqli->query($sqlInsert) or die($mysqli->error);
     }
 
     public function ModificarMejorado(Requerimiento $data)
 	{
         require 'Controlador/Conexion.php';
-        $sql = "UPDATE `detallereq` 
-        SET 
-        `FKEMPLEASIG`='$data->empleasi', `FKESTADO`='$data->estado'
-        WHERE IDDETALLEREQ = '$data->id'";
-        $resultado = $mysqli->query($sql) or die($mysqli->error);
+ //       $sql = "UPDATE `detallereq` 
+//        SET 
+//        `FKEMPLEASIG`='$data->empleasi', `FKESTADO`='$data->estado'
+//        WHERE IDDETALLEREQ = '$data->id'";
+        $sqlreq = "INSERT INTO `requisito`(`FKAREA`) VALUES ('$data->area')";
+        $mysqli->query($sqlreq) or die($mysqli->error);
+        $consulsql = "Select IDREQ from requisito order by IDREQ desc limit 1";
+        $result = mysqli_query($mysqli, $consulsql) or die("Ocurrio un error en la consulta SQL");
+        $fila = mysqli_fetch_array($result);
+        $REQID = $fila["IDREQ"];
+        $sqlInsert = "INSERT INTO `detallereq`(`FECHA`, `OBSERVACION`, `FKEMPLE`, `FKREQ`, `FKESTADO`, `FKEMPLEASIG`) VALUES (
+            '$data->fecha',
+            '$data->observacion',
+            '$data->emple',
+            '$REQID',
+            '$data->estado',
+            '$data->empleasi')";
+        $resultado = $mysqli->query($sqlInsert) or die($mysqli->error);
     }
     
     public function Eliminar(Requerimiento $data)

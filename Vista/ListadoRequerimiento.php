@@ -56,7 +56,7 @@
 						<th scope="col">ESTADO</th>
 						<th scope="col">EMPLEADO ASIGNADO</th>
 						<th scope="col"></th>
-						<th scope="col"></th>
+						<!--<th scope="col"></th>-->
 					</tr>
 				</thead> 
 			<tbody>
@@ -85,7 +85,7 @@
 				<td><?php echo $data["NOMBRE"];?></td>
 				<td><?php echo $data["FKEMPLEASIG"];?></td>
 				<td><a href="ModificarRequerimiento.php?cc=<?php echo $data['IDDETALLEREQ']; ?>"> <button type="button" class="btn btn-success">Asignar</button> </a> </td>
-				<td><a href="../index.php?c=requerimiento&a=Eliminar&cc=<?php echo $data['IDDETALLEREQ']; ?>"><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>
+				<!--<td><a href="../index.php?c=requerimiento&a=Eliminar&cc=<?php// echo $data['IDDETALLEREQ']; ?>"><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>-->
 			</tr>
 		<?php 
 				}

@@ -37,20 +37,56 @@ class CtrlRequerimiento{
 		//header('Location: Vista/V_requerimiento.php');	
 	}
 	public function Modificar(){
-        $alm = new Requerimiento();
+		$alm = new Requerimiento();
+		$usuuu = $_SESSION['user'];
+		$consulsql = "Select FKEMPLE from login where usuario = '$usuuu'";
+        $result = mysqli_query($mysqli, $consulsql) or die("Ocurrio un error en la consulta SQL");
+        $fila = mysqli_fetch_array($result);
+        $EMPLEID = $fila["FKEMPLE"];
         $alm->id = $_REQUEST['txtId'];	
 		$alm->empleasi = $_REQUEST['rbempa'];
 		$alm->estado = 2;
+		$alm->fecha = date("Y-m-d");
+		$alm->observacion = $_REQUEST['txtObser'];
+        $alm->emple = $EMPLEID;
 		$this->objRequerimiento->Modificar($alm); // : no
 		header('Location: /phpproject/Vista/ListadoRequerimiento.php');	
 	}
 
 	public function ModificarMejor(){
         $alm = new Requerimiento();
+		$usuuu = $_SESSION['user'];
+		$consulsql = "Select FKEMPLE from login where usuario = '$usuuu'";
+        $result = mysqli_query($mysqli, $consulsql) or die("Ocurrio un error en la consulta SQL");
+        $fila = mysqli_fetch_array($result);
+		$EMPLEID = $fila["FKEMPLE"];
+		
         $alm->id = $_REQUEST['txtId'];	
 		$alm->empleasi = $_REQUEST['rbempa'];
-		     $alm->estado = $_REQUEST['rbestado'];
+		$alm->estado = 2;
+		$alm->fecha = date("Y-m-d");
+		$alm->observacion = $_REQUEST['txtObser'];
+        $alm->emple = $EMPLEID;
 		$this->objRequerimiento->ModificarMejorado($alm); // : no
+		header('Location: /phpproject/Vista/ListadoEstado.php');	
+	}
+
+
+	public function ModificarConEstado(){
+        $alm = new Requerimiento();
+		$usuuu = $_SESSION['user'];
+		$consulsql = "Select FKEMPLE from login where usuario = '$usuuu'";
+        $result = mysqli_query($mysqli, $consulsql) or die("Ocurrio un error en la consulta SQL");
+        $fila = mysqli_fetch_array($result);
+		$EMPLEID = $fila["FKEMPLE"];
+		
+        $alm->id = $_REQUEST['txtId'];	
+		$alm->empleasi = $_REQUEST['rbempa'];
+		$alm->estado = 2;
+		$alm->fecha = date("Y-m-d");
+		$alm->observacion = $_REQUEST['txtObser'];
+        $alm->emple = $EMPLEID;
+		$this->objRequerimiento->Modificar($alm); // : no
 		header('Location: /phpproject/Vista/ListadoEstado.php');	
 	}
 

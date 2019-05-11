@@ -1,4 +1,5 @@
 <?php 	include ('header.php');
+header('Location: /phpproject/Vista/V_requerimiento.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

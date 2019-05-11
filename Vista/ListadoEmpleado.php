@@ -60,7 +60,7 @@
 						<th scope="col">AREA</th>
 						<th scope="col">SUPERVISOR</th>
 						<th scope="col"></th>
-						<th scope="col"></th>
+						<!--<th scope="col"></th>-->
 					</tr>
 				</thead> 
 			<tbody>
@@ -88,7 +88,7 @@
 				<td><?php echo $data["FKAREA"];?></td>
 				<td><?php echo $data["FKEMPLE"];?></td>
 				<td><a href="ModificarEmpleado.php?cc=<?php echo $data['IDEMPLEADO']; ?>"> <button type="button" class="btn btn-success">Modificar</button> </a> </td>
-				<td><a href="../index.php?c=empleado&a=Eliminar&cc=<?php echo $data['IDEMPLEADO']; ?>"><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>
+				<!--<td><a href="../index.php?c=empleado&a=Eliminar&cc=<?php echo $data['IDEMPLEADO']; ?>"><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>-->
 			</tr>
 		<?php 
 				}

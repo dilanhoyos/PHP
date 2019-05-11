@@ -84,7 +84,7 @@
 				<td><?php echo $data["NOMBRE"]; ?></a></td>
 				<td><?php echo $data["FKEMPLE"];?></td>
 				<td><a href="ModificarArea.php?cc=<?php echo $data['IDAREA']; ?>"> <button type="button" class="btn btn-success">Modificar</button> </a> </td>
-				<td><a href="../index.php?c=area&a=Eliminar&cc=<?php echo $data['IDAREA'];?> "><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>
+				<!--<td><a href="../index.php?c=area&a=Eliminar&cc=<?php echo $data['IDAREA'];?> "><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>-->
 			</tr>
 		<?php 
 				}
