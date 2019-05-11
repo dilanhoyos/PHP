@@ -58,6 +58,8 @@ class CtrlRequerimiento{
 	}
 
 	public function ModificarMejor(){
+		session_start();
+		require 'Controlador/Conexion.php';
         $alm = new Requerimiento();
 		$usuuu = $_SESSION['user'];
 		$consulsql = "Select FKEMPLE from login where usuario = '$usuuu'";
@@ -67,7 +69,7 @@ class CtrlRequerimiento{
 		
         $alm->id = $_REQUEST['txtId'];	
 		$alm->empleasi = $_REQUEST['rbempa'];
-		$alm->estado = 2;
+		$alm->estado = $_REQUEST['rbestado'];
 		$alm->fecha = date("Y-m-d");
 		$alm->observacion = $_REQUEST['txtObser'];
         $alm->emple = $EMPLEID;
