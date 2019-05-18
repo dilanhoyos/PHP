@@ -40,7 +40,10 @@
                         <a href="/phpproject/Vista/ListadoEstado.php">Solucion</a>
                      </li>
                      <li > 
-                        <a href="/phpproject/Vista/adminuser.php">AdminUser</a>
+                        <a href="/phpproject/Vista/adminuser.php">Administracion de Usuarios</a>
+                     </li>
+                     <li > 
+                        <a href="/phpproject/Vista/consultas.php">Consultas</a>
                      </li>
                 </ul>
                 <ul class="right hide-on-med-and-down">

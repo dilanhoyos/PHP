@@ -1,20 +1,21 @@
 <?php 
-	$Page_Title = 'Listado de Empleados';
+	$Page_Title = 'Listado de No Completo';
 	$Page = 'Informacion';
 	include ('header.php');
 	include "../Controlador/Conexion.php";	
-	include "../Modelo/area.php";
+	include "../Modelo/empleado.php";
 	/////////// VARIABLES DE CONSULTA ////////////////
 	$where="";
+			
 ?>
-<html lang="es"> <!-- Lenguaje español -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta name="index.php"  content="text/html;" http-equiv="content-type" charset="utf-8"><!-- Utf que hace que la letra salga bien -->
 	<meta name="viewport" content="width=device-width, initial-scale=1"> <!--Etiqueta bootstrap la cual detcta que si es un dispositivo movil se va a adaptar a esa pantalla-->
 	<script src="../js/jquery-3.3.1.min.js"></script>
 	<link rel="stylesheet" href="../css/jquery.dataTables.min.css">
 	<script src="../js/jquery.dataTables.min.js"></script>
-	<script src="../js/jquery.tabledit.js"></script>
 	<script>
 		$(document).ready(function()//va a estar leyendo jqyery
 		{
@@ -39,32 +40,30 @@
 	</script>
 </head>
 <body>
-<BR>
-	<div class ="container">
+	<div>
+		<BR>
 		<div class="row">
-			<h2 style="text-align: center">Listado de Area</h2>
+			<h2 style="text-align: center">Listado de Radicado No Completados</h2>
 		</div>
-		<div>
-		<div class="row">
-			<a href="V_area.php" class="btn btn-primary">Nueva Area</a>
-		</div>
-		<br>
-		<br>
 		<div class="row table-responsive"> 
 			<table class="striped" id="mitabla">
 				<thead class="thead-dark">
 					<tr>   
 						<th scope="col">ID</th>
-						<th scope="col">NOMBRE</th>
-						<th scope="col">SUPERVISOR</th>
+						<th scope="col">FECHA</th>
+						<th scope="col">OBSERVACION</th>
+						<th scope="col">EMPLEADO</th>
+						<th scope="col">REQUISITO</th>
+						<th scope="col">ESTADO</th>
+						<th scope="col">EMPLEADO ASIGNADO</th>
 						<th scope="col"></th>
-						<th scope="col"></th>
+						<!--<th scope="col"></th>-->
 					</tr>
 				</thead> 
 			<tbody>
 		<?php 
 		//////////////// CONSULTA A LA BASE DE DATOS ///////////////////
-			$consulta ="SELECT * FROM area;";
+			$consulta ="SELECT D.IDDETALLEREQ, D.FECHA, D.OBSERVACION, D.FKEMPLE, D.FKREQ, E.NOMBRE, EM.NOMBRE AS 'NOMBREEMPLE', D.FKEMPLEASIG FROM detallereq D INNER JOIN estado E ON D.FKESTADO = E.IDESTADO INNER JOIN empleado EM ON EM.IDEMPLEADO = D.FKEMPLE WHERE D.FKESTADO = 3 OR D.FKESTADO = 2";
 			$resEstado=$mysqli->query($consulta);
 			if(mysqli_num_rows($resEstado)==0)
 			{
@@ -74,49 +73,27 @@
 					
 			$result = mysqli_num_rows($resEstado);
 			if($result > 0){
-
 			while ($data = $resEstado->fetch_array(MYSQLI_BOTH)) {
-				$E = new Area(($data["IDAREA"]),($data["NOMBRE"]),($data["FKEMPLE"]));	
-		?>
+
+
+		?> 
 			<tr>
-				<td><?php echo $data["IDAREA"]; ?></td>
-				<td><?php echo $data["NOMBRE"]; ?></a></td>
-				<td><?php echo $data["FKEMPLE"];?></td>
-				<td><a href="ModificarArea.php?cc=<?php echo $data['IDAREA']; ?>"> <button type="button" class="btn btn-success">Modificar</button> </a> </td>
-				<!--<td><a href="../index.php?c=area&a=Eliminar&cc=<?php echo $data['IDAREA'];?> "><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>-->
+				<td><?php echo ($data["IDDETALLEREQ"]); ?></td>
+				<td><?php echo $data["FECHA"]; ?></a></td>
+				<td><?php echo $data["OBSERVACION"];?></td>
+				<td><?php echo $data["NOMBREEMPLE"];?></td>
+				<td><?php echo ($data["FKREQ"]);?></td>
+				<td><?php echo $data["NOMBRE"];?></td>
+				<td><?php echo $data["FKEMPLEASIG"];?></td>
+				<td><a href="ModificarRequerimiento.php?cc=<?php echo $data['IDDETALLEREQ']; ?>"> <button type="button" class="btn btn-success">Asignar</button> </a> </td>
+				<!--<td><a href="../index.php?c=requerimiento&a=Eliminar&cc=<?php// echo $data['IDDETALLEREQ']; ?>"><button type="button" class="btn btn-danger"> Eliminar</button></a> </td>-->
 			</tr>
 		<?php 
 				}
 			}
 		?>
 			</table>
-		</div>	
 		</div>
-		<!--
-	<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">Eliminar Registro</h4>
-				</div>
-				
-				<div class="modal-body">
-					¿Desea eliminar este registro?
-				</div>
-				
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<a class="btn btn-danger btn-ok">Delete</a>
-				</div>
-			</div>
-		</div>
-	</div>
-<script>
-	$('#confirm-delete').on('show.bs.modal', function(e) {
-		$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
-		$('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
-	});
-</script>-->
+		
 </body>
 </html>
